@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.front-pg-article {
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+img {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.front-pg-article > div {
+    display: block;
+    text-align: justify;
+    width: 100%;
+}
+
+p {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    vertical-align: top;
+}
+
+span {
+    color: lightslategray;
+}
+

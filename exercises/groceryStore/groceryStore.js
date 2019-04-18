@@ -7,4 +7,4 @@ var shopper = {
 
  shopper.groceryCart = ['Milk', 'Eggs', 'Frozen Pizza']
 
- console.log(shopper.atRegister())
+ console.log(shopper.inStore)

@@ -99,7 +99,7 @@ function loopOlympics() {
     
     console.log(emptyArrThreeXThree)
 
-    // gold 2
+    // gold 2 ** this for reference
     const goldTwoArr = [[],[],[]]
 
     for (let i = 0; i < 3; i++) {
@@ -124,15 +124,15 @@ function loopOlympics() {
     console.log(goldThreeArr)
 
     // gold 4
-    const newArr = [[0,0,0],[0,0,0],[0,0,0]]
+    const testArr = [[0,0,0],[0,0,0],[0,0,0],[1,2,3]]
 
-    for (let i = 0; i < newArr.length; i++) {
-        for (let j = 0; j < newArr[i].length; j++) {
-            newArr[i][j] = "X"
+    for (let i = 0; i < testArr.length; i++) {
+        for (let j = 0; j < testArr[i].length; j++) {
+            testArr[i][j] = "X"
         }
     }
 
-    console.log(newArr)
+    console.log(testArr)
 }
 
 loopOlympics()

@@ -11,6 +11,7 @@ body {
 h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+    font-size: 50pt;
 }
 
 img {
@@ -20,7 +21,6 @@ img {
 }
 
 .front-pg-article > div {
-    display: block;
     text-align: justify;
     width: 100%;
 }
@@ -34,5 +34,18 @@ p {
 
 span {
     color: lightslategray;
+}
+
+.classified-container {
+    width: 80%;
+    text-align: justify;
+    margin: 0 auto;
+}
+
+.classified-container  p {
+    display: inline-block;
+    width: 25%;
+    margin: 10px;
+    border-bottom: black 3px solid;
 }
 

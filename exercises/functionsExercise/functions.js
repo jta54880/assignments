@@ -40,3 +40,32 @@ const concatStrES6 = (str) => {
 
 console.log(concatStr("Hello, my name is yellow"))
 console.log(concatStrES6 ("Hello, my name is yellow"))
+
+// OPTIONAL CHALLENGE 1
+// function takes a number prints n fibonacci and returns sum
+const fibonacci = (n) => {
+    const fibonacciNums = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
+    const nFibNums = fibonacciNums.slice(0, n)
+    let sum = 0
+    const fibMap = nFibNums.map(num => sum += num)
+    return sum
+}
+
+function fibonacciFunc(n) {
+    const fibonacciNums = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
+    const nFibNums = fibonacciNums.slice(0, n)
+    const fibNumString = nFibNums.join(" + ")
+    console.log(fibNumString)
+    let sum = 0
+    for (let i = 0; i < nFibNums.length; i++) {
+        sum += nFibNums[i]
+    }
+    return sum  
+}
+
+console.log(fibonacci(6))
+console.log(fibonacciFunc(3))
+
+// OPTIONAL CHALLENGE 2
+// func accepts string, return most frequent occuring letter
+

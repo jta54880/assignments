@@ -128,7 +128,7 @@ function loopOlympics() {
 
     for (let i = 0; i < testArr.length; i++) {
         for (let j = 0; j < testArr[i].length; j++) {
-            testArr[i][j] = "X"
+            typeof testArr[i][j] === 'number' ? testArr[i][j] = "X" : null
         }
     }
 

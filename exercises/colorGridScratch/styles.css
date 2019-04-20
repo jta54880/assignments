@@ -11,7 +11,7 @@
 
 .box-container > div {
     display: inline-block;
-    border: solid 2pt white;
+    border: solid 5pt white;
 }
 
 .box-lg {
@@ -19,21 +19,9 @@
     height: 25%;
 }
 
-.one {
-    background: #F5C6D6
-}
-
-.box-xs {
-    width: 25%;
+.box-md {
+    width: 75%;
     height: 25%;
-}
-
-.two {
-    background: #EE2E84;
-}
-
-.five {
-    background: #E76E34; 
 }
 
 .box-s {
@@ -41,15 +29,30 @@
     height: 25%;
 }
 
-.three {
-    background: #85CFD8;
+.box-xs {
+    width: 25%;
+    height: 25%;
 }
 
-.box-md {
-    width: 75%;
-    height: 25%;
+.one {
+    background: #F5C6D6
+}
+
+.two {
+    background: #EE2E84;
+}
+
+.three {
+    background: #85CFD8;
 }
 
 .four {
     background: #8DC63F  
 }
+
+.five {
+    background: #E76E34; 
+}
+
+
+

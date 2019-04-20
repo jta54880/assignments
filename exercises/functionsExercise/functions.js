@@ -68,4 +68,16 @@ console.log(fibonacciFunc(3))
 
 // OPTIONAL CHALLENGE 2
 // func accepts string, return most frequent occuring letter
+const maxOccuringLetter = (str) => {
+    let maxLetterTotal = 0
+    let maxLetter = ""
+    str.split('').forEach(letter => {
+        if (str.split(letter).length > maxLetterTotal) {
+            maxLetterTotal = str.split(letter).length
+            maxLetter = letter
+        }
+    })
+    return `Character that occurs the most: '${maxLetter}' Occurs: ${maxLetterTotal - 1}. times.`
+}
 
+console.log(maxOccuringLetter("yellow mellow hello l "))

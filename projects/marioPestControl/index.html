@@ -11,54 +11,58 @@
     <div class="container">
         <div class="header">
             <h1>Mario's Pest Control</h1>
-            <img src="#" alt="Mario Cleaning House">
         </div>
         <div class="body">
             <ul class="baddie-list">
                 <li class="goomba">
-                    <img src="#" alt="Goomba">
+                    <img src="https://vignette.wikia.nocookie.net/mario/images/b/b2/GoombaSM3DWArtwork.png/revision/latest?cb=20131111161124" alt="Goomba">
                     <span>Goomba</span>
-                    <span>5 Coins</span>
+                    <span>5 Coins/Each</span>
                     <input
                         id="goomba-input"
                         type="number"
-                        placeholder="Enter Number of Goombas Caught"
+                        placeholder="# Goombas Caught"
                     />
-                    <button onclick="handleGoombaBtn()">Total for Goombas</button>
                     <span id="goomba-total"></span>
                 </li>
                 <li class="bob-ombs">
-                    <img src="#" alt="Bob-ombs">
+                    <img src="https://vignette.wikia.nocookie.net/mario/images/8/8c/Bob-omb%2C_New_Super_Mario_Bros._U.png/revision/latest?cb=20121119023919" alt="Bob-ombs">
                     <span>Bob-ombs</span>
-                    <span>7 Coins</span>
+                    <span>7 Coins/Each</span>
                     <input
                         id="bob-ombs-input"
                         type="number"
-                        placeholder="Enter Number of Bob-ombs Caught"
+                        placeholder="# Bob-ombs Caught"
                     />
-                    <button onclick="handleBobOmbsBtn()">Total for Bob-Ombs</button>
                     <span id="bob-ombs-total"></span>
                 </li>
                 <li class="cheep-cheeps">
-                    <img src="#" alt="Cheep-cheeps">
+                    <img src="https://vignette.wikia.nocookie.net/mario/images/c/c1/Cheep_Cheep%2C_New_Super_Mario_Bros._U.png/revision/latest?cb=20121106023911" alt="Cheep-cheeps">
                     <span>Cheep-cheeps</span>
-                    <span>11 Coins</span>
+                    <span>11 Coins/Each</span>
                     <input
                         id="cheep-cheeps-input"
                         type="number"
-                        placeholder="Enter Number of Bob-ombs Caught"
+                        placeholder="# Cheep-cheeps Caught"
                     />
-                    <button onclick="handleCheepCheepsBtn()">Total for Cheep-cheeps</button>  
                     <span id="cheep-cheeps-total"></span> 
                 </li>
             </ul>
-            <button class="totals-btn" onclick="handleBaddiesBill()">Calculate Total Bill</button>
-            <h3 id="bill-total"></h3>
+            <div class="btns">
+                <button class="btn totals-btn" onclick="handleBaddiesBill()">Calculate Total Bill</button>
+                <button class="btn clear-btn" onclick="handleClearAll()">Clear All</button>
+            </div>
+            <h3>Baddies Bill Total - <span id="bill-total"></span></h3>
+            <div class="breakdown">Breakdown - 
+                <div id="goomba-breakdown"></div>
+                <div id="bobombs-breakdown"></div>
+                <div id="cheepCheep-breakdown"></div>
+            </div>
         </div>
         <div class="footer">
-            <!-- marios email address
-            marios company url 
-            marios physical address  -->
+            <div class="email"></div>
+            <div class="website"></div>
+            <div class="address"></div>
         </div>
     </div>
     <script src="index.js"></script>

@@ -10,10 +10,10 @@ console.log(addTwoNumbersES6(4, 5))
 
 // function with 3 params and returns the largest
 const biggestNum = (x, y, z) => {
-   return x > y && x > z ? x : y > x && y > z ? y : z > x ? z : "there is NO single largest number"
+   return x > y && x > z ? x : y > x && y > z ? y : z > x && z > y ? z : "there is NO single largest number"
 }
 
-console.log(biggestNum(0, 18, 0))
+console.log(biggestNum(18, 18, 0))
 
 // function 1 param returns 'odd' or 'even'
 function oddOrEven(x) {

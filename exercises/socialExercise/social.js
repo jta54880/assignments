@@ -52,8 +52,12 @@ const footballTeam =
 /* --------------------------------------------------------------------- */    
 // add myScore to each game
 function addMyScore(opponent, score) {
-    return footballTeam.gameScores[0].opponent === opponent ? footballTeam.gameScores       [0].myScore = score : null
+    // return footballTeam.gameScores[0].opponent === opponent ? footballTeam.gameScores       [0].myScore = score : null
+    //     console.log(footballTeam.gameScores)
+    return footballTeam.gameScores.forEach((game, i) => {
+        game.opponent === opponent ? footballTeam.gameScores[i].myScore = score : null
         console.log(footballTeam.gameScores)
+    })
 }
 
 addMyScore("Box Elder", "22")
@@ -63,7 +67,7 @@ addMyScore("Bountiful", "21")
 // add isRival to opponents
 function addRivalStatus(rival, bool) {
     return footballTeam.opponents.forEach(opponent => {
-        opponent.name === rival ? opponent.isRival = true : opponent.isRival = false
+        opponent.name === rival ? opponent.isMyRival = bool : opponent.isMyRival = false
         console.log(footballTeam)
     })
 }

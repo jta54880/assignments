@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    background: black;
+    margin: 0 auto;
+    width: 100vw;
+    height: 1100pt;
+}
+
+.flag-container {
+    display: inline-block;
+    position: relative;
+    background: white;
+    height: 10%;
+    width: 50%;
+    left: 25%;
+}
+
+.france > .red {
+    position: relative;
+    background: red;
+    height: 100%;
+    width: 33%;
+}
+
+.france > .blue {
+    position: relative;
+    background: blue;
+    height: 100%;
+    width: 33%;
+    right: -67%;
+    top: -100%;
+}
+
+.germany {
+    background: red;
+}
+
+.germany > .black {
+    position: relative;
+    background: black;
+    height: 33%;
+    width: 100%;
+}
+
+.germany > .yellow {
+    position: relative;
+    background: yellow;
+    height: 33%;
+    width: 100%;
+    right: 0%;
+    top: 34%;
+}
+
+.madagascar {
+    background: white;
+}
+
+.madagascar > .red {
+    position: relative;
+    background: red;
+    height: 50%;
+    width: 75%;
+    left: 25%;
+}
+
+.madagascar > .green {
+    position: relative;
+    background: green;
+    height: 50%;
+    width: 75%;
+    right: -25%;
+    top: 0%;
+}
+
+.switzerland {
+    background: red;
+}
+
+.switzerland > .rect-column {
+    display: inline-block;
+    position: relative;
+    background: white;
+    height: 50%;
+    width: 10%;
+    right: -40%;
+    top: 25%;
+}
+
+.switzerland > .rect-row {
+    display: inline-block;
+    position: relative;
+    background: white;
+    height: 30%;
+    width: 25%;
+    right: -22%;
+    top: 15%;
+}
+
+

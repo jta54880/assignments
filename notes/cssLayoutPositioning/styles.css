@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    font-size: 0;
+    box-sizing: border-box; 
+    /* confines padding and border (not margin) to the limits of its containers height and width */
+}
+
+body {
+    color: white;
+    font-size: 50pt;
+}
+
+.box {
+    background: black;
+    border: solid white 5pt;
+    width: 100%;
+    height: 100pt;
+}
+
+.one {
+    background: saddlebrown;
+    position: fixed;
+    /* relative allows you to move it right, left, top and bottom */
+    top: 0pt;
+}
+
+.four {
+    position: relative;
+    z-index: -99;
+    left: 25%;
+}

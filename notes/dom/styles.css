@@ -1,0 +1,9 @@
+body {
+    background: pink;
+}
+
+#candy-input {
+    width: 100pt;
+    height: 50pt;
+    font-size: 20pt;
+}

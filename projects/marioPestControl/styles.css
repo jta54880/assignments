@@ -60,9 +60,12 @@ li > * {
 }
 
 .body img {
+    display: inline-block;
     width: 100pt;
     height: 100pt;
     border-radius: 3pt;
+    padding: 0;
+    margin: 0 auto;
 }
 
 .body span {

@@ -1,105 +1,260 @@
 * {
-    margin: 0;
+    margin: 0; 
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    margin: 0 auto;
+}
+
 .container {
     position: relative;
-    background: black;
+    background: purple;
     margin: 0 auto;
-    width: 100vw;
     height: 1100pt;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.flag-container {
-    display: inline-block;
-    position: relative;
+.flag {
     background: white;
-    height: 10%;
-    width: 50%;
-    left: 25%;
+    position: relative;
+    height: 100pt;
+    width: 125pt;
+} 
+
+.france {
+    display: grid;
+    grid-template-columns: 33% auto 33%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+        "bl . rd";
 }
 
-.france > .red {
-    position: relative;
-    background: red;
-    height: 100%;
-    width: 33%;
-}
-
-.france > .blue {
-    position: relative;
+.france > .one {
     background: blue;
-    height: 100%;
-    width: 33%;
-    right: -67%;
-    top: -100%;
+    grid-area: bl;
+}
+
+.france > .two {
+    background: red;
+    grid-area: rd;
 }
 
 .germany {
     background: red;
+    display: grid;
+    grid-template-rows: 33% auto 33%;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+        "bl"
+        "."
+        "yl";
 }
 
-.germany > .black {
-    position: relative;
+.germany > .one {
     background: black;
-    height: 33%;
-    width: 100%;
+    grid-area: bl;
 }
 
-.germany > .yellow {
-    position: relative;
+.germany > .two {
     background: yellow;
-    height: 33%;
-    width: 100%;
-    right: 0%;
-    top: 34%;
+    grid-area: yl;
 }
 
 .madagascar {
     background: white;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+        ". rd"
+        ". gr";
 }
 
-.madagascar > .red {
-    position: relative;
+.madagascar > .one {
     background: red;
-    height: 50%;
-    width: 75%;
-    left: 25%;
+    grid-area: rd;
 }
 
-.madagascar > .green {
-    position: relative;
+.madagascar > .two {
     background: green;
-    height: 50%;
-    width: 75%;
-    right: -25%;
-    top: 0%;
+    grid-area: gr;
 }
 
 .switzerland {
     background: red;
+    display: grid;
+    grid-template-columns: auto 15% 15% 15% auto;
+    grid-template-rows: auto 15% 15% 15% auto;
+    grid-template-areas: 
+        ". . . . ."
+        ". . on . ."
+        ". tw th fr ."
+        ". . fv . ."
+        ". . . . .";
 }
 
-.switzerland > .rect-column {
-    display: inline-block;
-    position: relative;
+.switzerland > .one {
     background: white;
-    height: 50%;
-    width: 10%;
-    right: -40%;
-    top: 25%;
+    grid-area: on;
 }
 
-.switzerland > .rect-row {
-    display: inline-block;
-    position: relative;
+.switzerland > .two {
     background: white;
-    height: 30%;
-    width: 25%;
-    right: -22%;
-    top: 15%;
+    grid-area: tw;
 }
 
+.switzerland > .three {
+    background: white;
+    grid-area: th;
+}
+
+.switzerland > .four {
+    background: white;
+    grid-area: fr;
+}
+
+.switzerland > .five {
+    background: white;
+    grid-area: fv;
+}
+
+.sweden {
+    background: yellow;
+    display: grid;
+    grid-template-columns: 32% auto 58%;
+    grid-template-rows: 45% auto 45%;
+    grid-template-areas: 
+        "one . two"
+        ". . ."
+        "three . four";
+}
+
+.sweden > .one {
+    background: blue;
+    grid-area: one;
+}
+
+.sweden > .two {
+    background: blue;
+    grid-area: two;
+}
+
+.sweden > .three {
+    background: blue;
+    grid-area: three;
+}
+
+.sweden > .four {
+    background: blue;
+    grid-area: four;
+}
+
+.japan {
+    background: white;
+    display: grid;
+    grid-template-columns: auto 60pt auto;
+    grid-template-rows: auto 60pt auto;
+    grid-template-areas: 
+        ". . ."
+        ". circle ."
+        ". . .";
+}
+
+.japan > .circle {
+    background: red;
+    grid-area: circle;
+    border-radius: 50%;
+}
+
+.niger {
+    background: white;
+    display: grid;
+    grid-template-columns: auto 30pt auto;
+    grid-template-rows: 33% auto auto 30pt auto auto 33%;
+    grid-template-areas: 
+        "one one one"
+        ". . ."
+        ". . ."
+        ". circle ."
+        ". . ."
+        ". . ."
+        "two two two";
+}
+
+.niger > .one {
+    background: red;
+    grid-area: one;
+}
+
+.niger > .two {
+    background: green;
+    grid-area: two;
+}
+
+.niger > .circle {
+    background: red;
+    grid-area: circle;
+    border-radius: 50%;
+}
+
+.gambia {
+    background: white;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 33% auto 25% auto 33%;;
+    grid-template-areas: 
+        "one"
+        "."
+        "two"
+        "."
+        "three";
+}
+
+.gambia > .one {
+    background: red;
+    grid-area: one;
+}
+
+.gambia > .two {
+    background: blue;
+    grid-area: two;
+}
+
+.gambia > .three {
+    background: green;
+    grid-area: three;
+}
+
+.maldives {
+    background: green;
+    border: solid 25pt red;
+    display: grid;
+    grid-template-columns: auto 30pt auto;
+    grid-template-rows: auto 30pt auto;
+    grid-template-areas: 
+        ". . ."
+        ". moon ."
+        ". . .";
+}
+
+.maldives > .outer-circle {
+    background: white;
+    grid-area: moon;
+    border-radius: 50%;
+}
+
+.maldives .inner-circle {
+    position: relative;
+    top: 0pt;
+    left: 4pt;
+    background: green;
+    height: 30pt;
+    width: 30pt;
+    border-radius: 50%;
+}
 

@@ -20,7 +20,7 @@ body {
 .one {
     background: saddlebrown;
     position: fixed;
-    /* relative allows you to move it right, left, top and bottom */
+    /* relative/absolute/fixed allows you to move it right, left, top and bottom */
     top: 0pt;
 }
 

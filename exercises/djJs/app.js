@@ -21,6 +21,7 @@ window.addEventListener("scroll", function(){
 })
 
 document.addEventListener("keydown", function(event){
+    console.log(event.which)
     if (event.which === 82) {
         square.style.backgroundColor = "red"
     } else if (event.which === 80) {

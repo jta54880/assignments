@@ -10,7 +10,7 @@ body {
 
 .container {
     position: relative;
-    background: purple;
+    background: slategray;
     margin: 0 auto;
     height: 1100pt;
     width: 100vw;
@@ -258,3 +258,145 @@ body {
     border-radius: 50%;
 }
 
+.tonga {
+    background: red;
+    display: grid;
+    grid-template-columns: auto 5% 5% 5% auto 60%;
+    grid-template-rows: auto 5% 5% 5% auto 60%;
+    grid-template-areas: 
+        "one one one one one ."
+        "two two three four four ."
+        "five six six six seven ."
+        "eight eight nine ten ten ."
+        "elev elev elev elev elev ."
+        ". . . . . .";
+}
+
+.tonga > .one {
+    background: white;
+    grid-area: one;
+}
+
+.tonga > .two {
+    background: white;
+    grid-area: two;
+}
+
+.tonga > .three {
+    background: red;
+    grid-area: three;
+}
+
+.tonga > .four {
+    background: white;
+    grid-area: four;
+}
+
+.tonga > .five {
+    background: white;
+    grid-area: five;
+}
+
+.tonga > .six {
+    background: red;
+    grid-area: six;
+}
+
+.tonga > .seven {
+    background: white;
+    grid-area: seven;
+}
+
+.tonga > .eight {
+    background: white;
+    grid-area: eight;
+}
+
+.tonga > .nine {
+    background: red;
+    grid-area: nine;
+}
+
+.tonga > .ten {
+    background: white;
+    grid-area: ten;
+}
+
+.tonga > .elev {
+    background: white;
+    grid-area: elev;
+}
+
+.greece {
+    background: white;
+    display: grid;
+    grid-template-columns: 40% auto;
+    grid-template-rows: 10% auto 10% auto 10% auto 10% auto 10%;
+    grid-template-areas: 
+        "patch one"
+        "patch ."
+        "patch two"
+        "patch ."
+        "patch three"
+        ". ."
+        "four four"
+        ". ."
+        "five five";
+}
+
+.greece > .one {
+    background: blue;
+    grid-area: one;
+}
+
+.greece > .two {
+    background: blue;
+    grid-area: two;
+}
+
+.greece > .three {
+    background: blue;
+    grid-area: three;
+}
+
+.greece > .four {
+    background: blue;
+    grid-area: four;
+}
+
+.greece > .five {
+    background: blue;
+    grid-area: five;
+}
+
+.greece > .patch-container{
+    grid-area: patch;
+    background: white;
+    display: grid;
+    grid-template-columns: 40% auto 40%;
+    grid-template-rows: 42% auto 42%;
+    grid-template-areas: 
+        "one . two"
+        ". . ."
+        "three . four";
+}
+
+.patch-container > .patch-one {
+    background: blue;
+    grid-area: one;
+}
+
+.patch-container > .patch-two {
+    background: blue;
+    grid-area: two;
+}
+
+.patch-container > .patch-three {
+    background: blue;
+    grid-area: three;
+}
+
+.patch-container > .patch-four {
+    background: blue;
+    grid-area: four;
+}

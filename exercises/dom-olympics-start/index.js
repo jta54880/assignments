@@ -1,4 +1,5 @@
 const headerElement = document.getElementById("header")
+const positiveMessages = document.getElementById("message-id")
 const clearBtn = document.getElementById("clear-button")
 const dropDown = document.getElementById("theme-drop-down")
 
@@ -6,6 +7,10 @@ const dropDown = document.getElementById("theme-drop-down")
 window.addEventListener("load", function(){
     headerElement.innerHTML = 
         "<h1>JavaScript Made This!!</h1><h3><span id='name'>Jake</span> wrote the JavaScript</h3>"
+
+    // add positive messages
+    positiveMessages.innerHTML = 
+        "<div class='message left' id='test'>I have something fun to talk about</div><div class='message right'>What about?</div><div class='message left'>I love to exercise!</div><div class='message right'>Me TOO!!</div>"
 })
 
 // clear conversation
@@ -37,9 +42,8 @@ form.addEventListener("submit", function(e){
     let txtNode = document.createTextNode(message)
     div.appendChild(txtNode)
     messageDiv.appendChild(div)
-    message = ""
+    
+    // trying to dump message from input after submit / not working -- don't set variable name 'message' to "", because it will lose its reference to form.message.value
+    // message = ""
+    form.message.value = ""
 })
-
-
-
-

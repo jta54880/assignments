@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* text-align: center; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.header-container {
+    display: flex;
+    width: 100vw;
+    height: auto;
+    background: #f7f7f7;
+}
+
+.nav-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.nav-item {
+    padding: 5pt;
+    flex: 1;
+    color: slategrey;
+    transition: 0.2s ease-out;
+}
+
+li {
+    list-style: none;
+}
+
+li:hover {
+    cursor: pointer;
+    color: tomato;
+    transition: 0.2s ease-in;
+}
+
+.nav-list > .one {
+    font-size: 30pt;
+    flex: 4;
+}
+
+.image {
+    background-image: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+    width: 100vw;
+    height: 30vh;
+    background-repeat: repeat;
+}
+
+.main-container {
+    padding: 10pt 15%;
+    line-height: 25pt;
+    height: auto;
+    width: 100vw
+}
+
+h1 {
+    font-size: 30pt
+}
+
+.main-container > h3 {
+    font-size: 20pt
+}
+
+span {
+    font-size: 12pt;
+    text-align: start;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 150pt;
+}
+
+.body-image {
+    width: 30%;
+    height: 100%; 
+    padding: 15pt; 
+    background-position: center;
+}
+
+.image-container > .one {
+    background-image: url("https://images.unsplash.com/reserve/NV0eHnNkQDHA21GC3BAJ_Paris%20Louvr.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+}
+
+.image-container > .two {
+    background-image: url("https://images.unsplash.com/photo-1522165078649-823cf4dbaf46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+}
+
+.image-container > .three {
+    background-image: url("https://images.unsplash.com/photo-1503551723145-6c040742065b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");   
+}
+
+.footer-container {
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    background: tomato;
+    color: #f7f7f7;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #f7f7f7;
+    transition: 0.2s ease-out;
+}
+
+a:hover {
+    cursor: pointer;
+    color: lightblue;
+    transition: 0.2s ease-in;
+}
+
+@media (max-width: 800px) {
+    .image-container {
+        flex-direction: column;
+        height: 400pt;
+        justify-content: space-between;
+    }
+
+    .body-image {
+        width: 80%;
+    }
+}

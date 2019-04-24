@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    text-align: 0;
+}
+
+.container {
+    display: flex;
+    height: 500pt;
+    width: 700pt;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.box {
+    height: 25%;
+    border: solid 1pt white;
+}
+
+.one {
+    width: 100%;
+    background: #F5C6D6;
+}
+
+.two {
+    width: 25%;
+    background: #EE2E84;    
+}
+
+.three {
+    width: 50%;
+    background: #85CFD8;   
+}
+
+.four {
+    width: 75%;
+    background: #8DC63F;    
+}
+
+.five {
+    width: 25%;
+    background: #E76E34;    
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: 100%;
+    }
+}

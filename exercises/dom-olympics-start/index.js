@@ -23,6 +23,7 @@ clearBtn.addEventListener("click", function(){
 })
 
 // change color scheme based on drop down
+
 dropDown.addEventListener("change", function() {
     const toggleClass = document.getElementById("message-id")
     if (dropDown.value === "theme-two") {

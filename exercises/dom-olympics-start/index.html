@@ -16,8 +16,8 @@
     </select>
     <div id="main">
         <button id='clear-button'>clear</button>
-        <div class="messages">
-            <div class="message left">
+        <div class="messages" id="message-id">
+            <div class="message left" id="test">
                 I have something serious to talk about
             </div>
             <div class="message right">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <form name="message">
-            <input id="input" value="Thanks! Goodbye"/>
+            <input id="input" name="message" placeholder="Message"/>
             <button>Send</button>
         </form>
     </div>

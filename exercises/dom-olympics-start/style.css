@@ -31,7 +31,17 @@
     background-color: lightblue;
 }
 
+.black-red > .left {
+    background-color: red;
+    color: white;
+}
+
 .left {
     align-self: flex-start;
     background-color: burlywood;
+}
+
+.black-red > .right {
+    background-color: black;
+    color: white;
 }

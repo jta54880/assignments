@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML CALCULATOR</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="add">
+        <div class="header red"></div>
+        <form name="addForm">
+            <input type="number" name="addX" placeholder="First Number">
+            <span> + </span>
+            <input type="number" name="addY" placeholder="Second Number">
+            <button>ADD</button>
+            <span> = </span>
+            <div id="sum"></div>
+        </form>
+    </div>
+    <hr>
+    <hr>
+    <div id="subtract">
+        <div class="header blue"></div>
+        <form name="subtractForm">
+            <input type="number" name="subX" placeholder="First Number">
+            <span> - </span>
+            <input type="number" name="subY" placeholder="Second Number">
+            <button>SUBTRACT</button>
+            <span> = </span>
+            <div id="difference"></div>
+        </form>
+    </div>
+    <hr>
+    <hr>
+    <div id="multiply">
+        <div class="header yellow"></div>
+        <form name="multiplyForm">
+            <input type="number" name="multiplyX" placeholder="First Number">
+            <span> x </span>
+            <input type="number" name="multiplyY" placeholder="Second Number">
+            <button>MULTIPLY</button>
+            <span> = </span>
+            <div id="product"></div>
+        </form>
+    </div>
+    <script src="app.js"></script>   
+</body>
+</html>

@@ -34,7 +34,7 @@ form.addEventListener('submit', function(e){
     console.log(dietaryRestrictions)
 
     // alert with data
-    let alertMessage = `First name: ${fName}\nLast name: ${lName}\nAge: ${age}\nGender: ${gender}\nLocation: ${destination}\nDietary restrictions: ${dietaryRestrictions.join(" , ")}`
+    let alertMessage = `First name: ${fName}\nLast name: ${lName}\nAge: ${age}\nGender: ${gender}\nLocation: ${destination}\nDietary restrictions: ${dietaryRestrictions.join(", ")}`
 
     alert(alertMessage)
 })

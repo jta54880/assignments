@@ -15,6 +15,10 @@ window.addEventListener("load", function(){
 
 // clear conversation
 clearBtn.addEventListener("click", function(){
+    
+    /* ------------------- */
+    // if trying to manipulate data use id not classname
+    // document.getElementsByClassName("message").innerHTML = ""
     document.getElementById("message-id").innerHTML = ""
 })
 
@@ -43,7 +47,8 @@ form.addEventListener("submit", function(e){
     div.appendChild(txtNode)
     messageDiv.appendChild(div)
     
-    // trying to dump message from input after submit / not working -- don't set variable name 'message' to "", because it will lose its reference to form.message.value
+    /* ------------------- */
+    // trying to dump message from input after submit / not working -- don't set variable name 'message' to "", because it will lose its reference to form.message.value by reassigning variable message to just "" thereby losing reference of document.message.message.value
     // message = ""
     form.message.value = ""
 })

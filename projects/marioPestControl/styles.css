@@ -76,10 +76,18 @@ li > * {
     vertical-align: center;
 }
 
-input {
+ul input {
     font-size: 13pt;
     border: none;
     border-bottom: solid 2pt #e60012;
+    transition: 0.2s ease-out;
+}
+
+ul input:hover {
+    background: slategrey;
+    color: #f7f7f7;
+    border-radius: 2pt;
+    transition: 0.2s ease-in;
 }
 
 .btns {

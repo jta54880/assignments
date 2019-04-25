@@ -9,12 +9,13 @@ form.addEventListener('submit', function(e){
     
     //checkbox
     const cars = form.likes // is a node list
+    console.log(cars)
     const likedCars = []
     for (let i = 0; i < cars.length; i++) {
         if (cars[i].checked) {
             likedCars.push(cars[i].value)
         }
     }
-    
+
     console.log(likedCars)
 })

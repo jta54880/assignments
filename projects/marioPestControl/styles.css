@@ -27,7 +27,8 @@ body {
 }
 
 .header > h1 {
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
     color: #ffffff;
     font-size: 3em;
     border-radius: 3pt;
@@ -139,4 +140,28 @@ h3 {
     color: #e60012;
     border-radius: 2pt;
     transition: 0.25s ease-in;
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-wrap: wrap;
+    }
+    
+    .body > ul {
+        flex-direction: column;
+    }
+
+    input {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 1000px) {
+    .header {
+        align-items: flex-start;  
+    }   
+    
+    .header > h1 {
+        margin: 10pt;
+    }
 }

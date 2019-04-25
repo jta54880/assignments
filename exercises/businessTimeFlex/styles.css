@@ -2,19 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* text-align: center; */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .header-container {
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: auto;
     background: #f7f7f7;
 }
 
 .nav-list {
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -44,9 +43,10 @@ li:hover {
 
 .image {
     background-image: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+    background-size: cover;
     width: 100vw;
     height: 30vh;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
 }
 
 .main-container {
@@ -108,6 +108,7 @@ span {
 }
 
 a {
+    padding: 5pt;
     text-decoration: none;
     color: #f7f7f7;
     transition: 0.2s ease-out;
@@ -116,17 +117,27 @@ a {
 a:hover {
     cursor: pointer;
     color: lightblue;
+    border: solid 2pt #f7f7f7;
+    border-radius: 5pt;
     transition: 0.2s ease-in;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .image-container {
         flex-direction: column;
         height: 400pt;
         justify-content: space-between;
     }
 
+    .image-container > .two {
+        margin: 7pt 0;
+    }
+
     .body-image {
         width: 80%;
+    }
+
+    .nav-list > .two, .nav-list > .three, .nav-list > .four {
+        display: none;
     }
 }

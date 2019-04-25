@@ -29,7 +29,6 @@ while(!gameOver) {
 
     if (states[index] != 'Oregon') {
         console.log(`sorry, ${states[index]} is not a good choice`)
-        states.slice(index, 1)
     } else {
         console.log("good idea!")
         gameOver = true

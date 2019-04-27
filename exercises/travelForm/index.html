@@ -7,44 +7,71 @@
     <title>Travel Form</title>
 </head>
 <body>
-    <form name="travelForm">
-        <input type="text" name="firstName" placeholder="First Name">
+    <form name="myForm">
+        <input 
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+        />
         <br>
-        <input type="text" name="lastName" placeholder="Last Name">
+        <input 
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+        />
         <br>
-        <input type="number" name="age" placeholder="Age">
+        <input 
+            type="number"
+            name="age"
+            placeholder="Age"
+        />
         <br>
-        <label>
-            <input type="radio" name="gender" value="Female">
-            Female
-        </label>
+        <input 
+            id="female-btn"
+            type="radio"
+            name="gender"
+            value="Female"    
+        /> <label for="female-btn">Female</label>
         <br>
-        <label>
-            <input type="radio" name="gender" value="Male">
-            Male
-        </label>
+        <input 
+            id="male-btn"
+            type="radio"
+            name="gender"
+            value="Male"    
+        /> <label for="male-btn">Male</label>
         <br>
         <select name="location">
-            <option value="None Selected">--Select a Destination</option>
+            <option value="None Selected">--Select a Destination--</option>
             <option value="Hawaii">Hawaii</option>
-            <option value="Florida">Florida</option>
-            <option value="San Francisco">San Francisco</option>
+            <option value="Idaho">Idaho</option>
+            <option value="New York">New York</option>
+            <option value="Los Angeles">Los Angeles</option>
         </select>
         <br>
-        <label>
-            Vegan?
-            <input type="checkbox" name="foodAllergy" value="Vegan">
-        </label>
-        <label>
-            Lactose Free?
-            <input type="checkbox" name="foodAllergy" value="Lactose Intollerant">
-        </label>
-        <label>
-            Kosher?
-            <input type="checkbox" name="foodAllergy" value="Kosher">
-        </label>
-        <button>SUBMIT</button>
+        <input 
+            type="checkbox" 
+            name="diet" 
+            id="vegan" 
+            value="Vegan"
+        /> <label for="vegan">Vegan?</label>
+        <br>
+        <input 
+            type="checkbox" 
+            name="diet" 
+            id="lactose" 
+            value="Lactose Free"
+        /> <label for="lactose">Lactose Free?</label>
+        <br>
+        <input 
+            type="checkbox" 
+            name="diet" 
+            id="peanut" 
+            value="Peanut Free"
+        /> <label for="peanut">Peanut Free?</label>
+        <br>
+        <button>Submit</button>
     </form>
+    
     <script src="app.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
-.container-one {
+/* commented out for grid template areas below, uncomment and comment out below to activate non grid template area portion -- results are the same :) GRID AREAS SAVE ABOUT 40 LINES OF CSS! */
+/* .container-one {
     margin: 0 auto;
     width: 300pt;
     display: grid;
@@ -98,10 +99,11 @@
 
 .responsive-container {
     margin: 0 auto;
-    width: auto;
+    margin-bottom: 100pt;
+    width: 85vw;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: repeat(3, auto);
     grid-gap: 10pt;   
     text-align: center;
     font-size: 15pt;
@@ -210,5 +212,271 @@
         grid-column: 1 / -1;
         grid-row: 5;
     }
+} */
+
+.xtr-container {
+    margin: 0 auto;
+    justify-content: center;
+    width: 85vw;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(50pt, 100pt));
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "one two three four"
+        "five six seven eight"
+        "nine ten eleven twelve";
+    grid-gap: 10pt;   
+}
+
+.xtr-container > .red {
+    background: red;
+    border-radius: 3pt;
+}
+
+.xtr-container > .blue {
+    background: blue;
+    border-radius: 3pt;
+}
+
+.xtr-container > .one {
+    grid-area: one;
+}
+
+.xtr-container > .two {
+    grid-area: two;
+}
+
+.xtr-container > .three {
+    grid-area: three;
+}
+
+.xtr-container > .four {
+    grid-area: four;
+}
+
+.xtr-container > .five {
+    grid-area: five;
+}
+
+.xtr-container > .six {
+    grid-area: six;
+}
+
+.xtr-container > .seven {
+    grid-area: seven;
+}
+
+.xtr-container > .eight {
+    grid-area: eight;
+}
+
+.xtr-container > .nine {
+    grid-area: nine;
+}
+
+.xtr-container > .ten {
+    grid-area: ten;
+}
+
+.xtr-container > .eleven {
+    grid-area: eleven;
+}
+
+.xtr-container > .twelve {
+    grid-area: twelve;
+}
+
+@media (max-width: 480px) {
+    .xtr-container {
+        grid-template-columns: repeat(2, minmax(25pt, 50pt));
+        grid-template-rows: repeat(auto, minmax(25pt, 50pt));
+        grid-template-areas: 
+            "one two"
+            "three four"
+            "six five"
+            "eight seven"
+            "nine ten"
+            "eleven twelve";
+    }  
+}
+
+/* look up nth child referencing */
+
+/* -----------------FIRST EXERCISES WITH AREAS--------------------- */
+
+.container-one {
+    margin: 0 auto;
+    width: 300pt;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 50pt 50pt 50pt;
+    grid-template-areas: 
+        "r r b"
+        "g p p"
+        "y y y";
+    grid-gap: 10pt;
+}
+
+.container-one > .red {
+    border-radius: 3pt;
+    grid-area: r;
+}
+
+.container-one > .blue {
+    border-radius: 3pt;
+    grid-area: b;
+}
+
+.container-one > .green {
+    border-radius: 3pt;
+    grid-area: g;
+}
+
+.container-one > .purple {
+    border-radius: 3pt;
+    grid-area: p;
+}
+
+.container-one > .yellow {
+    border-radius: 3pt;
+    grid-area: y;
+}
+
+.container-two {
+    margin: 100pt auto;
+    width: 300pt;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 100pt 100pt 100pt;
+    grid-template-areas: 
+        "r r r"
+        "b g g"
+        "b p1 p2";
+    grid-gap: 10pt;
+}
+
+.container-two > .red {
+    border-radius: 3pt;
+    grid-area: r;
+}
+
+.container-two > .blue {
+    border-radius: 3pt;
+    grid-area: b;
+}
+
+.container-two > .green {
+    border-radius: 3pt;
+    grid-area: g;
+}
+
+.container-two > .one {
+    border-radius: 3pt;
+    grid-area: p1;
+}
+
+.container-two > .two {
+    border-radius: 3pt;
+    grid-area: p2;
+}
+
+.red {
+    background: red;
+}
+
+.blue {
+    background: blue;
+}
+
+.green {
+    background: green;
+}
+
+.purple {
+    background: purple;
+}
+
+.yellow {
+    background: yellow;
+}
+
+.responsive-container {
+    margin: 0 auto;
+    margin-bottom: 100pt;
+    width: 85vw;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 
+        "h h h"
+        "s1 c s2"
+        "f f f";
+    grid-gap: 10pt;   
+    text-align: center;
+    font-size: 15pt;
+}
+
+.responsive-container > * {
+    padding: 5pt;
+    border-radius: 3pt;
+}
+
+.sidebar-two {
+    background: lightblue;
+    grid-area: s2;
+}
+
+.sidebar {
+    background: black;
+    color: white;
+    grid-area: s1;
+}
+
+.header {
+    background: slategrey;
+    color: white;
+    grid-area: h;
+}
+
+.content {
+    background: black;
+    color: white;
+    grid-area: c;
+}
+
+.footer {
+    background: slategrey;
+    color: white;
+    grid-area: f;
+}
+
+@media (max-width: 768px) {
+    .responsive-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: 
+            "h h"
+            "s1 c"
+            "s2 s2"
+            "f f";
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: 
+            "h"
+            "s1"
+            "c"
+            "s2"
+            "f";
+    }
+    /* don't need to adjust individual grid components, just the template!!
+    I like grid-template-areas for media queries! */
 }
 

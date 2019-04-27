@@ -1,40 +1,24 @@
-let form = document.travelForm
+const form = document.myForm
 
-form.addEventListener('submit', function(e){
+form.addEventListener("submit", function(e) {
     e.preventDefault()
-    
-    // first name
-    let fName = form.firstName.value
-    console.log(fName)
-    
-    // last name
-    let lName = form.lastName.value
-    console.log(lName)
-    
-    // age
+    let firstName = form.firstName.value
+    let lastName = form.lastName.value
     let age = form.age.value
-    console.log(age)
-    
-    // gender
     let gender = form.gender.value
-    console.log(gender)
-    
-    // destination/location
-    let destination = form.location.value
-    console.log(destination)
-    
-    // food restrictions
-    const restrictions = form.foodAllergy
-    const dietaryRestrictions = []
-    for (let i = 0; i < restrictions.length; i++) {
-        if (restrictions[i].checked) {
-            dietaryRestrictions.push(restrictions[i].value)
-        }
+    let location = form.location.value
+    const diet = form.diet
+    const dietArr = []
+    for (let i = 0; i < diet.length; i++) {
+        diet[i].checked && dietArr.push(diet[i].value) 
     }
-    console.log(dietaryRestrictions)
+    let dietMessage = dietArr.join(", ")
 
-    // alert with data
-    let alertMessage = `First name: ${fName}\nLast name: ${lName}\nAge: ${age}\nGender: ${gender}\nLocation: ${destination}\nDietary restrictions: ${dietaryRestrictions.join(", ")}`
-
-    alert(alertMessage)
+    alert(
+    `First name: ${firstName}
+    Last name: ${lastName}
+    Age: ${age}
+    Gender: ${gender}
+    Location: ${location}
+    Dietary restrictions: ${dietMessage}`)
 })

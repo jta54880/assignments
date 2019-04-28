@@ -39,12 +39,8 @@ console.log(selectEnemy())
 
 function randomEnemy() {
     let randomNum = Math.floor(Math.random() * 2)
-    if (randomNum === 1) {
-        let newEnemy = selectEnemy()
+    let newEnemy = selectEnemy(randomNum)
         return newEnemy
-    } else {
-        return `No tokens here`
-    }
     
 }
 
@@ -78,12 +74,18 @@ while (!gameOver) {
             } else if (response==='w') {
                 console.log("We're walking!")
                 let enemyApproaching = false
-                // let ranNum = ranNum()
+                let ranNum = Math.random()
+                if (ranNum <= .33) {
+                    enemyApproaching = true
+                    let enemy = randomEnemy()
+                    console.log(`Uh Oh, looks like ${enemy.enemyName} is approaching`)
+                    attackOrRun()
+                } console.log("nothing here...")
                 
                     // console.log("An enemy is approaching...")
-                    const enemy = randomEnemy()
+                    // const enemy = randomEnemy()
                     
-                    console.log(`Oh No!! It looks like it's ${enemy.enemyName}`)
+                    // console.log(`Oh No!! It looks like it's ${enemy.enemyName}`)
                 
                 
             }

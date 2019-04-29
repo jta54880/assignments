@@ -51,6 +51,12 @@ li {
 
 a {
     color: #f7f7f7;
+    transition: 0.25s ease-out;
+}
+
+a:hover {
+    color: slategrey;
+    transition: 0.25s ease-in;
 }
 
 .image {

@@ -97,7 +97,7 @@ while(!gameOver) {
                         
                         enemyClose = !enemyClose
                         if (player.hitPoints <= 0) {
-                            console.log(`\nThe damage you sustained was too much for you to survive. You Have Died! Better Luck next time.\n`)
+                            console.log(`\nDON'T RUN AWAY!!! The damage you sustained was too much for you to survive. You Have Died! Better Luck next time.\n`)
                             
                             enemyClose = !enemyClose
                             gameOver = !gameOver

@@ -40,7 +40,7 @@ function randNum() {
 }
 
 function randAttPower() {
-    let num = Math.floor(Math.random() * 46) + 45
+    let num = Math.floor(Math.random() * (90 - 45 + 1)) + 45
     return num
 }
 
@@ -82,9 +82,9 @@ while(!gameOver) {
                     console.log(`\n**********\nName: ${player.name}\nHP: ${player.hitPoints}\nItems: ${player.items.join(", ")}\n**********\n`)
                 } else if (decision === 'r') {
                     let num = randNum()
-                    console.log(num)
+                    // console.log(num)
                     let attack = randAttPower()
-                    console.log(attack)
+                    // console.log(attack)
                     if (num <= .5 || player.hitPoints - attack <= 0) {
                         console.log(`\nSo sorry ${player.name}, ${enemy.name} struck a fatal blow.  You're dead!!! Better Luck to you on your next journey, my lord\n`)
 
@@ -106,9 +106,9 @@ while(!gameOver) {
                 } else if (decision === 'a') {
                     let hitPointBonus = 20
                     let playerAttPower = randAttPower()
-                    console.log(playerAttPower)
+                    console.log(`\nYour attack power is: ${playerAttPower} HP\n`)
                     let enemyAttPower = randAttPower()
-                    console.log(enemyAttPower)
+                    console.log(`\n${enemy.name} has an attack power of: ${enemyAttPower} HP\nAnd an HP of: ${enemy.hitPoints}\n`)
                     console.log(`\nYou attack first...\n`)
                     enemy.hitPoints -= playerAttPower
                     if (enemy.hitPoints <= 0) {

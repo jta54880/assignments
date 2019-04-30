@@ -13,6 +13,13 @@
     align-items: center;
 }
 
+/* changes */
+#header {
+    position: fixed;
+    top: 0;
+    transition: 0.5s ease-out
+}
+
 h1 {
     width: 40vw;
     margin: 10pt 15pt;
@@ -32,7 +39,7 @@ h1 {
     transition: 0.2s ease-out;
 }
 
-.menu-btn {
+/* .menu-btn {
     display: flex;
     flex-direction: column;
     margin: 0 10pt 0 0;
@@ -55,7 +62,7 @@ h1 {
 
 .show{
     visibility: hidden;
-}
+} */
 
 #about-id, #contact-id {
     text-decoration: none;
@@ -175,9 +182,9 @@ h3 > a:hover {
         /* font-size: 20pt; */
     }
 
-    .nav-list {
+    /* .nav-list {
         display: none;
-    }
+    } */
     
     .image-container {
         flex-direction: column;
@@ -193,13 +200,13 @@ h3 > a:hover {
         width: 80%;
     }
 
-    .nav-list {
+    /* .nav-list {
         visibility: hidden;
-    }
+    } */
 
-    .show {
+    /* .show {
         visibility: visible;
-    }
+    } */
 }
 
 @media (max-width: 400px) {

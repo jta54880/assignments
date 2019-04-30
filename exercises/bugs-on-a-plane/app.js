@@ -3,7 +3,6 @@ const submit = form.submit;
 // var query = document.querySelector;
 
 function formAlert() {
-    //e.preventDefault()
     let firstName = form.firstName.value;
     let lastName = form.lastName.value;
     let age = form.age.value;

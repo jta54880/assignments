@@ -28,13 +28,13 @@
     justify-content: flex-start;
     width: 100vw;
     height: 12vh;
-    background: tomato;
+    background: #f7f7f7;
 }
 
 .nav-header {
     font-size: 30pt;
     margin: 5pt 0 5pt 5pt;
-    color: #f7f7f7;
+    color: slategrey;
 }
 
 .nav-list {
@@ -50,12 +50,12 @@ li {
 }
 
 a {
-    color: #f7f7f7;
+    color: slategrey;
     transition: 0.25s ease-out;
 }
 
 a:hover {
-    color: slategrey;
+    color: tomato;
     transition: 0.25s ease-in;
 }
 
@@ -135,6 +135,17 @@ a:hover {
     background-position: center;
     width: 100%;
     background-repeat: no-repeat;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.4s ease-out;
+}
+
+.top-image-container > .one:hover,
+.top-image-container > .two:hover,
+.top-image-container > .three:hover,
+.top-image-container > .four:hover {
+    opacity: 1;
+    transition: 0.4s ease-in;
 }
 
 .top-image-container > .two {
@@ -143,7 +154,10 @@ a:hover {
     background-size: cover;
     background-position: center;
     width: 100%;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.4s ease-out;   
 }
 
 .top-image-container > .three {
@@ -152,7 +166,10 @@ a:hover {
     background-size: cover;
     background-position: center;
     width: 100%;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;
+    cursor: pointer; 
+    opacity: 0.8;
+    transition: 0.4s ease-out;  
 }
 
 .top-image-container > .four {
@@ -161,7 +178,10 @@ a:hover {
     background-size: cover;
     background-position: center;
     width: 100%;
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.4s ease-out;    
 }
 
 .upper-body {

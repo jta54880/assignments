@@ -16,8 +16,10 @@ console.log(stringItUp([2, 5, 100]))
 
 // 3
 function capitalizeNames(arr){
-    const capNames = arr.map(el => el[0].toUpperCase().concat(el.substring(1, el.length)))
+    const lowerArr = arr.map(el => el.toLowerCase())
+    const capNames = lowerArr.map(el => el[0].toUpperCase().concat(el.substring(1, el.length)))
     return capNames
+    // .map(name => name[0].toUpperCase() + name.slice(1))
   }
   
   console.log(capitalizeNames(["john", "JACOB", "jinGleHeimer", "schmidt"]))
@@ -119,7 +121,7 @@ var str = "Hello my name is Albert"
 //     console.log(strArr.join(" "))
 // }
 
-const myStr = (str) => {
+const myStr = str => {
     const strArr = str.split(" ")
     strArr.splice(-1, 1, "Jake")
     return strArr.join(" ")

@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: auto auto 20vh;
+    grid-template-areas: 
+        "h"
+        "b"
+        "f";
+}
+
+.header {
+    grid-area: h;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-rows: auto 45vh;
+    grid-template-areas: 
+        "t ul ul ul"
+        "i i i i";
+    color: slategrey;
+    background: #f7f7f7;
+}
+
+.header > h1 {
+    grid-area: t;
+    margin: 5pt 5pt;
+}
+
+.nav-list {
+    grid-area: ul;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+a {
+    margin: 0 15pt;
+    color: slategrey;
+    transition: 0.3s ease-in;
+}
+
+a:hover {
+    color: tomato;
+    transition: 0.3 ease-out;
+}
+
+.header-img {
+    grid-area: i;
+    background-image: url("https://images.unsplash.com/photo-1533060498584-2f538c6f84fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1358&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.body-container {
+    grid-area: b;
+    display: grid;
+    grid-template-columns: 10vw 5pt minmax(20vw, 25vw) auto minmax(20vw, 25vw) auto minmax(20vw, 25vw) 5pt 10vw;
+    grid-template-rows: auto auto 5pt minmax(15vh, 20vh) 5pt minmax(15vh, 20vh) 5pt minmax(15vh, 20vh) 5pt;
+    grid-template-areas: 
+        ". hd hd hd hd hd hd hd ."
+        ". . ti ti ti ti ti . ."
+        ". . . . . . . . ."
+        ". . one . two . three . ."
+        ". . . . . . . . ."
+        ". . four . five . six . ."
+        ". . . . . . . . ."
+        ". . seven . eight . nine . ."
+        ". . . . . . . . .";  
+    grid-gap: 5pt;
+}
+
+.body-header {
+    grid-area: hd;
+    font-size: 30pt;
+}
+
+.body-title {
+    grid-area: ti;
+    font-size: 15pt;
+}
+
+.body-container > #one {
+    grid-area: one;
+    background-image: url("https://images.unsplash.com/photo-1455577380025-4321f1e1dca7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 1s ease-in;
+}
+
+.body-container > #two {
+    grid-area: two;
+    background-image: url("https://images.unsplash.com/photo-1467581007859-478a3cee90e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 1s ease-in;
+}
+
+.body-container > #three {
+    grid-area: three;
+    background-image: url("https://images.unsplash.com/photo-1499240713677-2c7a4f692044?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 1s ease-in;
+}
+
+.body-container > #four {
+    grid-area: four;
+    background-image: url("https://images.unsplash.com/photo-1500308806058-9eb40154a774?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 1s ease-in;
+}
+
+.body-container > #five {
+    grid-area: five;
+    background-image: url("https://images.unsplash.com/photo-1465408522361-a6f502298219?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 1s ease-in;
+}
+
+.body-container > #six {
+    grid-area: six;
+    background-image: url("https://images.unsplash.com/photo-1498855926480-d98e83099315?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 1s ease-in;
+    background-position: center;
+}
+
+.body-container > #seven {
+    grid-area: seven;
+    background-image: url("https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 1s ease-in;
+}
+
+.body-container > #eight {
+    grid-area: eight;
+    background-image: url("https://images.unsplash.com/photo-1528773539583-fdb08042298b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 1s ease-in;
+}
+
+.body-container > #nine {
+    grid-area: nine;
+    background-image: url("https://images.unsplash.com/photo-1499371765489-7af2f89e58ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 1s ease-in;
+}
+
+.body-container > .img:hover {
+    opacity: 1;
+}
+
+.footer {
+    grid-area: f;
+    background: tomato;
+    color: #f7f7f7;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footer a:hover {
+    color: slategrey;
+}
+
+@media (max-width: 800pt) {
+    .body-container {
+        grid-template-columns: 5vw auto minmax(45vw, 80vw) auto 5vw;
+        grid-template-rows: auto auto 5pt minmax(30vh, 65vh) 5pt minmax(30vh, 65vh) 5pt minmax(30vh, 65vh) 5pt minmax(30vh, 65vh) 5pt minmax(30vh, 65vh) 5pt minmax(30vh, 65vh) 5pt minmax(30vh, 65vh) 5pt minmax(30vh, 65vh) 5pt minmax(30vh, 65vh) 5pt;
+        grid-template-areas: 
+            ". hd hd hd ."
+            ". . ti ti ."
+            ". . . . ."
+            ". . one . ."
+            ". . . . ."
+            ". . two . ."
+            ". . . . ."
+            ". . three . ."
+            ". . . . ."
+            ". . four . ."
+            ". . . . ."
+            ". . five . ."
+            ". . . . ."
+            ". . six . ."
+            ". . . . ."
+            ". . seven . ."
+            ". . . . ."
+            ". . eight . ."
+            ". . . . ."
+            ". . nine . ."
+            ". . . . ."; 
+    }   
+}
+
+@media (max-width: 500pt) {
+    .contact {
+        display: none;
+    }
+}

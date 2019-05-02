@@ -1,94 +1,236 @@
-// player CONSTRUCTOR
-function Player(userName) {
-    this.userName = userName
+// Install readline and destructure some methods
+const readlineSync = require("readline-sync")
+const {question, keyInYN} = readlineSync
+
+// create a Player constructor
+function Player(name) {
+    this.name = name
     this.hitPoints = 100
-    this.itemInventory = ["Lucky Warrior Pendant"]
-    this.attackPower = () => Math.floor(Math.random() * 100 + 20)
-    this.didSurviveAttack = false
-    this.didDefeatEnemy = false
-    this.isEscaping = false
+    this.items = ["magical amulet"]
+    this.attPower = randAttPower(this.hitPoints)
 }
 
-// enemy CONSTRUCTOR
-function Enemy(enemyName) {
-    this.enemyName = enemyName
-    this.hitPoints = 100
-    this.itemInventory = []
-    this.attackPower = () => Math.floor(Math.random() * 100 + 20)
-    this.didSurviveAttack = false   
-}
-
-// create a newPlayer (with userName)
+// function to create a player taking in a name
 function createPlayer(name) {
-    const newPlayer = new Player(name)
-    return newPlayer
+    const player = new Player(name)
+    return player
 }
 
-console.log(createPlayer("Yim"))
-
-// select a random (out of 3) named enemy
-function selectEnemy(ranNum) {
-    const enemyArr = ["Boogie", "Woogie", "Moe"]
-    let randomNum = Math.floor(Math.random() * 3)
-    let enemyName = enemyArr[randomNum]
-    const newEnemy = new Enemy(enemyName)
-    return newEnemy
-}
-
-console.log(selectEnemy())
-
-function randomEnemy() {
-    let randomNum = Math.floor(Math.random() * 2)
-    let newEnemy = selectEnemy(randomNum)
-        return newEnemy
-    
-}
-
-console.log(randomEnemy())
-
-// const ranNum = () => Math.floor(Math.random() * 2)
-
-const readLine = require("readline-sync")
-const {keyInYN, keyInSelect, question, keyIn} = readLine
-
-let gameOver = false
-let gameIntro = "Welcome to the Land of Colossal.  The game of splendor and adventure.  Survive and defeat enemies to earn tokens for your battles.  Your adventure awaits..."
-
-while (!gameOver) {
-    console.log(gameIntro)
-    let response = keyInYN("Do you dare brave the Land of Colossal?")
-    if (!response) {
-        gameOver = true
-        console.log("Perhaps after a few drinks you can muster up enough courage...Until next time!")
+// create an Enemy constructor with default HP based on the randomly generated Enemey Name
+function Enemy(name) {
+    this.name = name
+    if (name === "Boogie") {
+        this.hitPoints = 90
+        this.item = "dragon glass dagger"
+    } else if (name === "Woogie") {
+        this.hitPoints = 70 
+        this.item = "bag o gems"
     } else {
-        let userName = question("What is your name, brave warrior? ")
-        const player = createPlayer(userName)
-        let printPlayer = `***********************\n\tPlayer: ${player.userName}
-            User HP: ${player.hitPoints}
-            User Items: ${player.itemInventory.join(", ")}\n***********************\n`
-        let wantToWalk = false
-        while (!wantToWalk) {
-            let response = keyIn(`Would you like to find some tokens? (Enter 'w' to start walking or 'p' to see player info.`, {limit: 'wp'})  
-            if (response==='p') {
-                console.log(printPlayer)
-            } else if (response==='w') {
-                console.log("We're walking!")
-                let enemyApproaching = false
-                let ranNum = Math.random()
-                if (ranNum <= .33) {
-                    enemyApproaching = true
-                    let enemy = randomEnemy()
-                    console.log(`Uh Oh, looks like ${enemy.enemyName} is approaching`)
-                    attackOrRun()
-                } console.log("nothing here...")
-                
-                    // console.log("An enemy is approaching...")
-                    // const enemy = randomEnemy()
-                    
-                    // console.log(`Oh No!! It looks like it's ${enemy.enemyName}`)
-                
-                
-            }
-        }
+        this.hitPoints = 50
+        this.item = "silver loot"
+    }
+    this.attPower = randAttPower(this.hitPoints)
+}
+
+// create an enemy and retrun it with a random enemy name
+function createEnemy() {
+    let num = randNum()
+    let name = ""
+    num <= .33 ? name = "Woogie" : num > .66 ? name = "Boogie" : name = "Trollie"
+    const enemy = new Enemy(name)
+    return enemy
+}
+
+// random number generator function
+function randNum() {
+    let num = Math.random()
+    return num
+}
+
+// random attack power generator for both player and enemy
+function randAttPower(hp) {
+    let num = Math.floor(Math.random() * ((hp - 5) - (hp - 20) + 1)) + hp - 20
+    return num
+}
+
+// intro function
+function intro() {
+    console.log(`\nWelcome to the Land of Colossal.  Brave the unpredictable terrain to vanquish foes and collect relics.  Good Luck Courageous One.\n\n`)
+    let player = userName()
+    console.log(`\nWelcome lord ${player.name}, let us begin...`)
+    return player
+}
+
+// function to save player name and create a Player from constructor
+function userName() {
+    let name = question("What is your name, my lord?\n")
+    const player = createPlayer(name)
+    return player
+}
+
+// function to print user data
+function printUserData(user) {
+    let playerData = `\n**********\nName: ${user.name}\nHP: ${user.hitPoints}\nItems: ${user.items.join(", ")}\n**********\n`
+    return playerData
+}
+
+// function to flip boolean whether new enemy or not
+function newEnemy(bool) {
+    return bool
+}
+
+// function for walking (generate 1/3 chance of encountering enemy)
+function walk() {
+    let ranNum = randNum()
+    if (ranNum < 0.66) {
+        console.log(`\n...Nothing Here... Let's keep walking.\n`)
+        return false
+    } else {
+        console.log(`\nEnemy Approaching...!\n`)
+        return true
     }
 }
+
+// function to run walk or print
+function walkOrPrint(response, user) {
+    if (response === 'print') {
+        const userData = printUserData(user)
+        return userData
+    } else if (response != 'w') {
+        return `\nnot a valid entry...\n`
+    } else {
+        return walk()
+    }
+}
+
+const testEnemy = createEnemy()
+console.log(testEnemy.hitPoints, testEnemy.name, testEnemy.attPower)
+
+const testPlayer = createPlayer("john")
+console.log(testPlayer.hitPoints, testPlayer.name, testPlayer.attPower)
+testEnemy.hitPoints -= testPlayer.attPower
+testPlayer.hitPoints -= testEnemy.attPower
+testPlayer.attPower = randAttPower(testPlayer.hitPoints)
+testEnemy.attPower = randAttPower(testEnemy.hitPoints)
+
+console.log(testPlayer.hitPoints, testPlayer.name, testPlayer.attPower)
+console.log(testEnemy.hitPoints, testEnemy.name, testEnemy.attPower)
+
+// // Intro
+// const player = intro()
+// // Get player Name
+// let gameOver = false
+// // while gameOver is false run this while loop, when true break out -- game over
+// while(!gameOver) {
+//     let response = question(`\nEnter 'w' to walk the terrain or 'print' to see your info.\n`)
+//     const walkPromptResponse = walkOrPrint(response, player)
+//     walkPromptResponse = false
+    
+    
+    // const enemy = createEnemy()
+    // console.log(enemy)
+
+
+    // // if type 'print', prints user data, if 'w' walks, if anything else -- reruns
+    // if (response === 'print') {
+    //     console.log(`\n**********\nName: ${player.name}\nHP: ${player.hitPoints}\nItems: ${player.items.join(", ")}\n**********\n`)
+    // } else if (response !== 'w') {
+    //     console.log(`\nInvalid entry...\n`)
+    // // 'w' was selected
+    // } else {
+    //     let num = randNum()
+    //     // 2/3 chance nothing happens
+    //     if (num <= .66) {
+    //         console.log(`\nNothing Here... Let's keep walking.\n`)
+    //     // 1/3 chance an enemy approaches
+    //     } else {
+    //         console.log(`\nHere's some action...\n`)
+    //         // create a random enemy
+    //         const enemy = createEnemy()
+    //         console.log(`It looks like ${enemy.name} is approaching!!!`)
+    //         let enemyNotClose = false
+    //         // while there is an enemy close, run while loop
+    //         while (!enemyNotClose) {
+    //             let decision = question(`\nDo you wish to Attack (enter 'a') or Run away (enter 'r')?\n...(or enter 'print' to see your info)\n`)
+    //             // if 'print' print user data, if 'a' attack, if 'r' run away, if anything else rerun
+    //             if (decision === 'print') {
+    //                 console.log(`\n**********\nName: ${player.name}\nHP: ${player.hitPoints}\nItems: ${player.items.join(", ")}\n**********\n`)
+    //             // if 'r' 50/50 survive or escape (taking damage)
+    //             } else if (decision === 'r') {
+    //                 let num = randNum()
+    //                 // console.log(num)
+    //                 let attack = randAttPower()
+    //                 // console.log(attack)
+    //                 if (num <= .5 || player.hitPoints - attack <= 0) {
+    //                     console.log(`\nSo sorry ${player.name}, ${enemy.name} struck a fatal blow.  You're dead!!! DON"T RUN AWAY!! Better Luck to you on your next journey, my lord\n`)
+
+    //                     enemyNotClose = !enemyNotClose
+    //                     gameOver = !gameOver
+    //                 } else {
+    //                     console.log(`\nWow, that was close! You've escaped... but not without consequences. You've sustained a decrease in HP by ${attack}\n`)
+    //                     player.hitPoints -= attack
+    //                     console.log(`\nYour current HP is ${player.hitPoints}\n`)
+                        
+    //                     enemyNotClose = !enemyNotClose
+    //                     if (player.hitPoints <= 0) {
+    //                         console.log(`\nDON'T RUN AWAY!!! The damage you sustained was too much for you to survive. You Have Died! Better Luck next time.\n`)
+                            
+    //                         enemyNotClose = !enemyNotClose
+    //                         gameOver = !gameOver
+    //                     }
+    //                 }
+    //             // if 'a' generate attack power for player and enemy, player strikes first, and either kills or hurts enemy...if killed, gain 20HP and takes enemy token...if hurt enemy, enemy attacks player...if player dies--gameover, if player hurt, repeat attack logic
+    //             } else if (decision === 'a') {
+    //                 let hitPointBonus = 20
+    //                 let playerAttPower = randAttPower()
+    //                 console.log(`\nYour attack power is: ${playerAttPower} HP\n`)
+    //                 let enemyAttPower = randAttPower()
+    //                 console.log(`\n${enemy.name} has an attack power of: ${enemyAttPower} HP\nAnd an HP of: ${enemy.hitPoints}\n`)
+    //                 console.log(`\nYou attack first...\n`)
+    //                 enemy.hitPoints -= playerAttPower
+    //                 if (enemy.hitPoints <= 0) {
+    //                     console.log(`\nYou've delivered a fatal blow, and have killed ${enemy.name}! You have collected a new relic: ${enemy.item},  plus an HP bonus of 20pts.\n`)
+    //                     player.items.push(enemy.item)
+    //                     player.hitPoints += hitPointBonus
+                        
+    //                     enemyNotClose = !enemyNotClose
+    //                 } else {
+    //                     console.log(`\nNice hit! Get ready, ${enemy.name} is initiating his attack\n`)
+    //                     player.hitPoints -= enemyAttPower
+    //                     console.log(`\nBOOM!! ${enemy.name} hit you with a blow of ${enemyAttPower} points.  Your current HP is: ${player.hitPoints}\n`)
+    //                     if (player.hitPoints <= 0) {
+    //                         console.log(`\nThe damage you sustained was too much for you to survive. You Have Died! Better Luck next time.\n`)
+
+    //                         enemyNotClose = !enemyNotClose
+    //                         gameOver = !gameOver
+    //                     } else {
+    //                         console.log(`\nWow, what feat of strength! Your HP = ${player.hitPoints}. Your turn to attack again!\n`)
+    //                         enemy.hitPoints -= playerAttPower
+    //                         if (enemy.hitPoints <= 0) {
+    //                             console.log(`\nYou've delivered a fatal blow, and have killed ${enemy.name}! You have collected a new relic: ${enemy.item},  plus an HP bonus of 20pts.\n`)
+    //                             player.items.push(enemy.item)
+    //                             player.hitPoints += hitPointBonus
+                        
+    //                             enemyNotClose = !enemyNotClose   
+    //                         } else {
+    //                             console.log(`\nWow, what feat of strength! Your HP = ${player.hitPoints}. Your turn to attack again!\n`)
+    //                             enemy.hitPoints -= playerAttPower   
+    //                             if (enemy.hitPoints <= 0) {
+    //                                 console.log(`\nYou've delivered a fatal blow, and have killed ${enemy.name}! You have collected a new relic: ${enemy.item},  plus an HP bonus of 20pts.\n`)
+    //                                 player.items.push(enemy.item)
+    //                                 player.hitPoints += hitPointBonus
+    //                                 enemyNotClose = !enemyNotClose   
+    //                             }
+    //                         }
+
+
+    //                     }
+    //                 }
+    //             } else {
+    //                 console.log(`\nInvalid entry...\n`) // if not 'a' 'r' or 'print' begins loop (while line 95)
+    //             }
+    //         }
+            
+    //     }
+    // }
+// }

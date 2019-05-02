@@ -5,7 +5,7 @@ window.addEventListener("scroll", function() {
     if (prevScrollY > currentScrollY || currentScrollY <= 0) {
         document.getElementById("header").style.top = "0"
     } else {
-        document.getElementById("header").style.top = "-100%"
+        document.getElementById("header").style.top = "-50%"
     }
 
     prevScrollY = currentScrollY

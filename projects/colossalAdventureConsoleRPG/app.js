@@ -1,3 +1,5 @@
+// functional attempt May 1 version 2, works and is much cleaner
+
 // Install readline and destructure some methods
 const readlineSync = require("readline-sync")
 const {question, keyInYN} = readlineSync
@@ -142,12 +144,12 @@ function attackSequence(player, enemy) {
             player.items.push(enemy.item)
             fightOver = !fightOver
         } else {
-            player.attPower = randAttPower(player.hitPoints)
             console.log(`\n${enemy.name} attacks with power: ${enemy.attPower}\n`)
             player.hitPoints -= enemy.attPower
+            player.attPower = randAttPower(player.hitPoints)
             console.log(`\n${player.name} now has an HP of ${player.hitPoints}\n`)
             if (player.hitPoints <= 0) {
-                console.log(`\n${enemy.name} over powered you. youve died, bettter luck next time\n`)
+                console.log(`\n${enemy.name} overpowered you. You've died, bettter luck next time\n`)
                 fightOver = !fightOver
             } else {
                 player.attPower = randAttPower(player.hitPoints)
@@ -155,6 +157,7 @@ function attackSequence(player, enemy) {
             }
         }     
     }
+    player.attPower = randAttPower(player.hitPoints)
     return player
 }
 
@@ -162,14 +165,7 @@ function attackSequence(player, enemy) {
 function runSequence(player, enemy) {
     let ranNum = randNum()
     player.hitPoints -= enemy.attPower
-    // if (ranNum < .5) {
-    //     player.hitPoints = 0
-    //     console.log("\nYou're flight tactic proved disasterous.  You're Dead...RIP\n")
-    //     return player
-    // } else if (player.hitPoints <= 0) {
-    //     console.log("\nYou're flight tactic proved disasterous.  You're Dead...RIP\n")
-    //     return player 
-    // }
+    player.attPower = randAttPower(player.hitPoints)
     if (ranNum < .5 || player.hitPoints <= 0) {
         console.log("\nYou're flight tactic proved disasterous.  You're Dead...RIP\n") 
         player.hitPoints = 0

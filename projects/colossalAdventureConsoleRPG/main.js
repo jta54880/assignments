@@ -1,3 +1,5 @@
+// Brute attempt with ultra nested ifs version 1 -- works, but not clean.
+
 // Install readline and destructure some methods
 const readlineSync = require("readline-sync")
 const {question, keyInYN} = readlineSync

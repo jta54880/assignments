@@ -57,6 +57,32 @@ function randAttPower(hp) {
 
 // intro function
 function intro() {
+    console.log(`
+                       /|
+                      / |                   
+                     |  |
+                     |  |
+                     |  |
+                     |  |
+                     |  |
+                     |  |
+                     |  |
+                     |  |
+                 ____|__|____
+                |____________|                     
+                     |  |
+                     |  |
+                     |__|  
+    ________  ________  ____  ________  ________  ________  ________  ____          
+   |  ______||  ____  ||    ||  ____  ||  ______||  ______||  ____  ||    |            
+   | |       | |    | ||    || |    | || |       | |       | |    | ||    |          
+   | |       | |    | ||    || |    | || |______ | |______ | |____| ||    |          
+   | |       | |    | ||    || |    | ||______  ||______  ||        ||    |          
+   | |       | |    | ||    || |    | |       | |       | ||   __   ||    |         
+   | |______ | |____| ||    || |____| | ______| | ______| ||  |  |  ||    |        
+   |________||________||____||________||________||________||__|  |__||____|            
+    
+   `)
     console.log(`\nWelcome to the Land of Colossal.  Brave the unpredictable terrain to vanquish foes and collect relics.  Good Luck Courageous One.\n\n`)
     let player = userName()
     console.log(`\nWelcome lord ${player.name}, let us begin...`)
@@ -123,6 +149,16 @@ function fightOrFlight(player) {
         } else if (response === 'r') {
             madeDecision = !madeDecision
             console.log("\nOh boy, Running is a weak strategy...\n")
+            console.log(
+                `               _
+                              _( }
+                    -=   _  <<  |
+                        <.l__// l>>   RUNNING AWAY
+                  -=      l--'ll  
+                       -=     //
+                           <)
+                `
+                )
             return false
         } else {
             console.log("\nInvalid response...('a', 'r' or 'print)\n")
@@ -133,6 +169,17 @@ function fightOrFlight(player) {
 // fight sequence loop
 function attackSequence(player, enemy) {
     let fightOver = false
+    console.log(
+        `
+                     l                                          ___/________
+               ___   )                    ,  @                    /    l  l
+            @___, l /                  @__l  /l              @___/      l@/
+           /l__,   |                  /l_, l/ /             /l__/        |
+          / l    / @ l                / l   (               / l /        / l
+        _/__|___/___/_______________/__|____l_____________/__/__________|__l__
+        
+        `
+    )
     while(!fightOver) {
         console.log(`\n${player.name} attacks with power: ${player.attPower}\n`)
         enemy.hitPoints -= player.attPower
@@ -174,6 +221,27 @@ function runSequence(player, enemy) {
     return player
 }
 
+function outro(player, enemy) {
+    console.log(`
+-----_____
+       _____------           __ ----------_  SORRY, ${player.name}...  
+___----             ___------              ]  
+   ----________        ----    GAME         ]  ${enemy.name} GOT THE BEST OF YOU! 
+               -----__    |      OVER!! _____]  
+                    __-                /     ]
+        _______-----    ___--          [    /))
+  ------_______      ---____            [__/  /
+               -----__    [ --    _          /]
+                      --__--__     [_____/   [_/]
+                              ----|   /          |
+                                  |  |___________|
+                                  |  | ((_(_)| )_)
+                                  |  [_((_(_)|/(_)
+                                  []             (
+                                   [_____________)
+    `)
+}
+
 /* -----------------------------functional attempt----------- */
 /* -----------GAME PLAY------------- */
 const player = intro()
@@ -189,7 +257,8 @@ while(!gameOver) {
         if (player.hitPoints > 0) {
             console.log(`\ngood fighting! Let's keep walking...\n`)   
         } else {
-            console.log(`Try again!`)  
+            console.log(`Try again!`) 
+            outro(player, enemy) 
             gameOver = !gameOver 
         }
     } else {
@@ -197,8 +266,9 @@ while(!gameOver) {
         if (player.hitPoints > 0) {
             console.log(`\nWow! You're Lucky lord ${player.name}.\n However, you took some damage...your current HP is: ${player.hitPoints}\n\n`)   
         } else {
-            console.log(`\nTry again soon!\n`)  
-            gameOver = !gameOver 
+            console.log(`\nTry again soon!\n`) 
+            outro(player, enemy) 
+            gameOver = !gameOver
         }  
     }
 }

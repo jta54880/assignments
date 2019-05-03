@@ -1,0 +1,62 @@
+{
+    "appetizers": [
+        {
+            "name": "buffalo wings",
+            "ingredients": ["chicken wing", "buffalo sause", "carrots"],
+            "description": "A Hot and tasty set of wings"
+        },
+        {
+            "name": "nacohs",
+            "ingredients": ["corn chips", "queso", "jalapenos"],
+            "description": "Nasty nachos with cheese for days"
+        }
+    ],
+    "coldSandwiches": [
+        {
+            "name": "cucumber club",
+            "ingredients": ["sourdough", "ham", "turkey", "provolone cheese", "american cheese", "lettuce", "tomato", "pickled cucumbers"],
+            "description": "A fresh twist on a classic club"
+        },
+        {
+            "name": "All American",
+            "ingredients": ["white bread", "bologne", "american cheese"],
+            "description": "Bologne on white"
+        }
+    ],
+    "hotSandwiches": [
+        {
+            "name": "Grilled Cheese",
+            "ingredients": ["white bread", "american cheese"],
+            "description": "Hot Cheesey Goodness"
+        },
+        {
+            "name": "Mighty Meatball",
+            "ingredients": ["fire toasted hero", "italian meatball", "provolone cheese"],
+            "description": "Are we in Sicily?"
+        }
+    ],
+    "desserts": [
+        {
+            "name": "Apple Pie",
+            "ingredients": ["pie crust", "apple filling"],
+            "description": "Apple goodness, add slice of cheddar to blow your mind"
+        },
+        {
+            "name": "Ice Cream Cone",
+            "ingredients": ["ice cream", "cone"],
+            "description": "Ice Cream Cone"
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Minty Coca Cola",
+            "ingredients": ["coke", "orange mint"],
+            "description": "Refreshing Coke with a refreshing mint flavor"
+        },
+        {
+            "name": "Water",
+            "ingredients": ["H2O", "lava minerals"],
+            "description": "Good 'ol Water"
+        }
+    ]
+}

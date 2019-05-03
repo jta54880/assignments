@@ -19,7 +19,7 @@ function capitalizeNames(arr){
     const lowerArr = arr.map(el => el.toLowerCase())
     const capNames = lowerArr.map(el => el[0].toUpperCase().concat(el.substring(1, el.length)))
     return capNames
-    // .map(name => name[0].toUpperCase() + name.slice(1))
+    // OR use ... .map(name => name[0].toUpperCase() + name.slice(1))
   }
   
   console.log(capitalizeNames(["john", "JACOB", "jinGleHeimer", "schmidt"]))

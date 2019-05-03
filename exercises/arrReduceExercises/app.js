@@ -14,8 +14,10 @@ console.log(stringConcat([1,2,3]))
 
 // 3
 function totalVotes(arr) {
-    let trueVoters = arr.filter(name => name .voted === true)
-    return trueVoters.length
+    // const trueVoters = arr.filter(name => name.voted)
+    // return trueVoters.length
+
+    return arr.reduce((acc, voter) => voter.voted ? acc += 1 : acc, 0)
 }
 
 var voters = [
@@ -24,7 +26,7 @@ var voters = [
     {name:'Kate' , age: 25, voted: false},
     {name:'Sam' , age: 20, voted: false},
     {name:'Phil' , age: 21, voted: true},
-    {name:'Ed' , age:55, voted:true},
+    {name:'Ed' , age:55, voted: true},
     {name:'Tami' , age: 54, voted:true},
     {name: 'Mary', age: 31, voted: false},
     {name: 'Becky', age: 43, voted: false},
@@ -36,10 +38,12 @@ console.log(totalVotes(voters))
 
 // 4
 function shoppingSpree(arr) {
-    // gather all prices from objects
-    const arrPrices = arr.map(item => item.price)
-    // sum em up    
-    return arrPrices.reduce((total, num) => total + num)
+    // // gather all prices from objects
+    // const arrPrices = arr.map(item => item.price)
+    // // sum em up    
+    // return arrPrices.reduce((total, num) => total + num)
+
+    return arr.reduce((acc,currentIndex) => acc += currentIndex.price,0)
 }
 
 var wishlist = [
@@ -54,8 +58,9 @@ console.log(shoppingSpree(wishlist))
 
 // 5 ??? understand this logic ???
 function flatten(arr) {
-    const flattened = arr.reduce((total, currentValue) => total.concat(currentValue))
-    return flattened          
+    // const flattened = arr.reduce((a, b) => a.concat(b), [])
+    // return flattened    
+    return arr.reduce((acc, currentIndexItem) => [...acc, ...currentIndexItem],[])      
 }
 
 var arrays = [

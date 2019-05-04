@@ -7,7 +7,7 @@ let shift = parseInt(question('How many letters would you like to shift? '));
 // console.log(inputArr)
 let alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-
+/* *************Code breaks at shift = 30************** */
 
 function cipher(input, shift) {
     const inputArr = input.split("")
@@ -38,12 +38,14 @@ console.log(cipher(input, shift))
 function decipher(str, shift) {
     const messageArr = str.split("")
     const decipheredArr =[]
-    messageArr.forEach((letter, i) => {
+    messageArr.forEach(letter => {
         let ind = alphabet.indexOf(letter)
+        console.log(ind)
         if (ind !== -1) {
             let adjustedShift = ind - shift
             if (adjustedShift < 0) {
-                adjustedShift += ind
+                adjustedShift += 27
+                console.log(adjustedShift)
                 letter = alphabet[adjustedShift - 1]
             } else if (adjustedShift < 26) {
                 letter = alphabet[adjustedShift]

@@ -1,4 +1,50 @@
+body {
+    box-sizing: border-box;
+    text-align: center;
+    width: 60vw;
+}
+
+form {
+    margin: auto;
+}
+
+form > input {
+    width: 40%;
+    height: 25pt;
+    font-size: 15pt;
+    border: none;
+    border-bottom: solid 1pt black;
+    background: rgba(100, 100, 100, 0.02);
+    margin: 5pt 0;
+    transition: 0.5s;
+}
+
+form > input:hover {
+    cursor: pointer;
+    background: rgba(200, 200, 100, 0.5); 
+    color: rgb(97, 109, 109);
+    transition: 0.5s; 
+}
+
+form > button {
+    width: 25%;
+    height: 25pt;
+    font-size: 15pt;
+    border-radius: 3pt;
+    background: transparent;
+    border: none;
+    border-bottom: solid 1pt black;
+    transition: 0.5s
+}
+
+form > button:hover {
+    cursor: pointer;
+    color: #F7F7F7;
+    background: #AAF0D1
+}
+
 .root {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

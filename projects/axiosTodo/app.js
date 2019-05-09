@@ -1,51 +1,63 @@
-
-
 /* ***************new attempt************* */
 
 let todoList = [];
 axios.get('https://api.vschool.io/jakeafuvai/todo/').then(response => {
     todoList = response.data
-    createTodo(todoList)
+    createTodo(response.data)
 })
 
 const form = document.todoForm
 form.addEventListener("submit", function(e) {
     e.preventDefault()
-    const title = form.title.value
-    const description = form.description.value
-    const price = form.price.value
-    const imgUrl = form.imgUrl.value
+    let title = form.title.value
+    let description = form.description.value
+    let price = form.price.value
+    let imgUrl = form.imgUrl.value
     const obj = {
         title,
         description,
         price,
         imgUrl
     }
-
+    form.reset()
     postNewTodo(obj)
 })
 
 function postNewTodo(obj) {
     axios.post("https://api.vschool.io/jakeafuvai/todo/", obj).then(response => {
-        // todoList.push(response.data)
+        todoList.push(response.data)
+        axios.get("https://api.vschool.io/jakeafuvai/todo/").then(response => todoList = response.data)
         createTodo([response.data])
     })
 }
 
 function toggleComplete(todo) {
     axios.put(`https://api.vschool.io/jakeafuvai/todo/${todo._id}`, {completed: !todo.completed}).then((response) => {
-        const updatedTodos = todoList.map(oldTodo => oldTodo._id === todo._id ? oldTodo = response.data : oldTodo)
+        const updatedTodos = todoList.map((oldTodo) => {
+            // console.log(oldTodo)
+            // console.log(response.data)
+            return oldTodo._id === todo._id ? response.data : oldTodo
+        })
+        // let todoIndex = todoList.indexOf(todo)
+        // todoList[todoIndex].completed = !todoList[todoIndex].completed
+        console.log(todoList)
+        console.log(updatedTodos)
         createTodo(updatedTodos, true)
     })
 }
 
 function deleteTodo(todo) {
-    axios.delete(`https://api.vschool.io/jakeafuvai/todo/${todo._id}`).then(response => createTodo(response.data))
+    axios.delete(`https://api.vschool.io/jakeafuvai/todo/${todo._id}`).then(response => {
+        console.log(response.data)
+        console.log(todoList.indexOf(todo))
+        todoList.splice(todoList.indexOf(todo),1)
+        // createTodo(response.data)
+    })
 }
 
-function createTodo(todos, isUpdated) {
+function createTodo(todos, updated) {
     const root = document.getElementById("root")
-    if(isUpdated){
+    if(updated){
         root.innerHTML = ''
     }
     todos.forEach(todo => {
@@ -76,6 +88,7 @@ function createTodo(todos, isUpdated) {
         image.setAttribute("alt", "todo image")  
         checkbox.addEventListener("click", function() {
             toggleComplete(todo)
+            axios.get("https://api.vschool.io/jakeafuvai/todo/").then(response => todoList = response.data)
             if (checkbox.checked) {
                 h2.style.textDecoration = "line-through"
                 h4.style.textDecoration = "line-through"
@@ -89,6 +102,7 @@ function createTodo(todos, isUpdated) {
         delBtn.innerText = "| x |"
         delBtn.addEventListener("click", function() {
             deleteTodo(todo)
+            axios.get("https://api.vschool.io/jakeafuvai/todo/").then(response => todoList = response.data)
             delBtn.parentNode.style.display = "none"
         })
         todoDiv.appendChild(checkbox)
@@ -98,6 +112,5 @@ function createTodo(todos, isUpdated) {
         todoDiv.appendChild(delBtn)
         todoDiv.appendChild(hr)
         root.appendChild(todoDiv)
-    });
-    
+    })
 }

@@ -1,0 +1,567 @@
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One|Libre+Baskerville:400,400italic);
+
+@font-face {
+    font-family: 'verdemoderna';
+    font-style: normal;
+    font-weight: 400;
+    src: url(http://www.csszengarden.com/214/verdemoderna.woff) format('woff');
+  }
+
+* {
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.verde {
+    font-family: "verdemoderna";
+}
+
+.julius {
+    font-family: "Julius Sans One";
+    font-weight: normal;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.main-container {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 45vh repeat(3, auto) 75vh;
+    grid-template-areas: 
+        "one one"
+        "two three"
+        "four five"
+        "six seven"
+        "eight eight";
+    background: #f7f7f7;
+}
+
+.one {
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url("http://www.csszengarden.com/214/contours@2x.png"), url("http://www.csszengarden.com/214/gridlines-opaque.png"), url("http://www.csszengarden.com/214/noise.png"), url("http://www.csszengarden.com/214/huntington.jpg");
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-position: center;
+    background-size: 50% auto, auto, auto, cover;
+    grid-area: one;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 20% auto 20%;
+    grid-template-areas: 
+        ". v"
+        "t v"
+        ". v";
+}
+
+.header-main {
+    grid-area: t;
+    color: rgba(255,255,255,1);
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+        ". . . ."
+        ". i h1 ."
+        ". i h2 ."
+        ". . . .";
+    justify-content: center;
+    align-items: center;
+}
+
+.header-main > img {
+    grid-area: i;
+    height: 100pt;
+    margin-right: 20pt;
+}
+
+.header-main > h1 {
+    font-family: "Julius Sans One";
+    font-size: 3.2em;
+    font-weight: normal;
+    grid-area: h1;
+    margin: 0;
+    align-self: end;
+}
+
+.header-main > h2 {
+    font-family: "Libre Baskerville";
+    font-size: 1.5em;
+    font-style: italic;
+    grid-area: h2;
+    margin: 0;
+    align-self: center;
+    opacity: 0.5;
+    font-weight: normal;
+}
+
+.header-btns {
+    grid-area: v;
+    background: rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: auto 20% 55% 20% auto;
+    grid-template-rows: auto 25% auto;
+    grid-template-areas: 
+        ". . . . ."
+        ". lb mb rb ."
+        ". . . . .";  
+}
+
+.header-btns > button {
+    font-family: "Julius Sans One";
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.header-btns > button:hover {
+    background: rgba(255, 255, 255, 0.5);   
+}
+
+#left-btn {
+    grid-area: lb;
+}
+
+#left-link {
+    font-family: "verdemoderna";
+    font-size: 35pt;
+    position: relative;
+    top: 0;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#middle-btn {
+    grid-area: mb;
+}
+
+#middle-link {
+    font-size: 14pt;
+    color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+}
+
+#right-btn {
+    grid-area: rb;
+}
+
+#right-link {
+    font-family: "verdemoderna";
+    font-size: 35pt;
+    position: relative;
+    top: 0;
+    color: rgba(255, 255, 255, 0.5);   
+}
+
+.header-btns > button:hover #left-link,
+.header-btns > button:hover #middle-link,
+.header-btns > button:hover #right-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);   
+}
+
+.two {
+    background: rgb(255, 255, 255);
+    grid-area: two;
+    display: grid;
+    grid-template-columns: 15% 75% 10%;
+    grid-template-rows: 8vh auto 8vh;
+    grid-template-areas: 
+        ". . ."
+        ". body ."
+        ". . .";
+}
+
+#two-body {
+    grid-area: body;
+    color: rgb(40, 63, 67);
+    font-family: "Libre Baskerville";
+    line-height: 25pt;
+}
+
+#two-body .verde {
+    background: rgb(216, 223, 205);
+    color: rgba(166, 180, 147, 0.8);
+    border: none;
+    padding: 2pt;
+    border-radius: 2pt;
+    font-size: 1em;
+}
+
+.verde-text {
+    font-family: "Julius Sans One";
+    background: none;
+    color: rgba(151, 172, 149, 0.8);
+}
+
+#two-body > h3 {
+    font-size: 1.9em;
+    opacity: 0.8;
+}
+
+.three {
+    background: rgba(237, 244, 240, 1);
+    grid-area: three;
+    display: grid;
+    grid-template-columns: 5% auto 30%;
+    grid-template-rows: 5vh auto 5vh;
+    grid-template-areas: 
+        ". . ."
+        ". body ."
+        ". . ."; 
+}
+
+.contributors {
+    grid-area: body;     
+}
+
+.link-one {
+    font-family: "Julius Sans One";
+    font-size: 1.1em;
+    color: rgba(90,109,111,1);
+    transition: 0.2s;
+}
+
+.link-one:hover {
+    color: rgba(138,188,159,1); 
+    transition: 0.2s;  
+}
+
+.contributors span {
+    font-style: italic;
+    color: rgba(138,188,159,0.5); 
+}
+
+.link-two {
+    font-size: 1.1em;
+    color: rgba(87,93,77,1);
+    transition: 0.2s;
+}
+
+.link-two:hover {
+    color: rgba(138,188,159,1); 
+    transition: 0.2s;  
+}
+
+.four {
+    background: rgba(138,188,159,0.5);
+    grid-area: four;
+    background-attachment: scroll, scroll, fixed;
+    background-image: url("http://www.csszengarden.com/214/contours-opaque.png"), url("http://www.csszengarden.com/214/gridlines-opaque.png"), url("http://www.csszengarden.com/214/bamboo.png");
+    background-repeat: repeat, repeat, no-repeat;
+    background-size: auto, auto, cover;
+    display: grid;
+    grid-template-columns: 15% 75% 10%;
+    grid-template-rows: 8vh auto 8vh;
+    grid-template-areas: 
+        ". . ."
+        ". body ."
+        ". . .";
+}
+
+#four-body {
+    grid-area: body;
+    color: rgb(40, 63, 67);
+    font-family: "Libre Baskerville";
+    line-height: 25pt;
+}
+
+#four-body > h3 {
+    font-size: 1.9em;
+    opacity: 0.8;
+}
+
+.five {
+    grid-area: five;
+    background: rgba(138,188,159,0.6);
+    background-attachment: fixed;
+    background-image: url("http://www.csszengarden.com/214/bamboo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.six {
+    background: rgb(255, 255, 255);;
+    grid-area: six;
+    display: grid;
+    grid-template-columns: 15% 75% 10%;
+    grid-template-rows: 8vh auto 8vh;
+    grid-template-areas: 
+        ". . ."
+        ". body ."
+        ". . .";
+}
+
+#six-body {
+    grid-area: body;
+    color: rgb(40, 63, 67);
+    font-family: "Libre Baskerville";
+    line-height: 25pt;
+}
+
+#six-body > h3 {
+    font-size: 1.9em;
+    opacity: 0.8;
+}
+
+.seven {
+    background: rgba(237, 244, 240, 1);
+    grid-area: seven;
+}
+
+.eight {
+    grid-area: eight;
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url("http://www.csszengarden.com/214/contours@2x.png"), url("http://www.csszengarden.com/214/gridlines-opaque.png"), url("http://www.csszengarden.com/214/noise.png"), url("http://www.csszengarden.com/214/koi.jpg");
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-position: center;
+    background-size: 50% auto, auto, auto, cover;
+}
+
+.creator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Libre Baskerville";
+    text-align: center;
+}
+
+#creator-p {
+    color: rgba(237, 244, 240, 0.4);
+    font-size: 2em;
+    line-height: 45pt;
+    font-style: italic;
+}
+
+.creator a {
+    color: rgba(237, 244, 240, 0.8);
+    font-style: normal;
+}
+
+.body-credits {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 70% 30%;
+    grid-template-areas: 
+        ". creator ."
+        "footer footer footer"
+}
+
+.body-credits > .creator {
+    grid-area: creator;
+    padding: 35pt 0 0 0;
+}
+
+.body-credits > .footer {
+    grid-area: footer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(21, 67, 70);
+    padding: 0 85pt;
+    font-size: 5em;
+}
+
+.body-credits > .footer > a {
+    color: rgba(237, 244, 240, 0.5);
+    transition: 0.3s;
+}
+
+#html > #html-after {
+    display: none;
+}
+
+#html:hover > #html-after {
+    display: inline-block;
+    transition: 0.3s;
+}
+
+#html:hover > #html-before {
+    display: none;
+}
+
+#css > #css-after {
+    display: none;
+}
+
+#css:hover > #css-after {
+    display: inline-block;
+    transition: 0.3s;
+}
+
+#css:hover > #css-before {
+    display: none;
+}
+
+#cc > #cc-after {
+    display: none;
+}
+
+#cc:hover > #cc-after {
+    display: inline-block;
+    transition: 0.3s;
+}
+
+#cc:hover > #cc-before {
+    display: none;
+}
+
+#ally > #ally-after {
+    display: none;
+}
+
+#ally:hover > #ally-after {
+    display: inline-block;
+    transition: 0.3s;
+}
+
+#ally:hover > #ally-before {
+    display: none;
+}
+
+#git > #git-after {
+    display: none;
+}
+
+#git:hover > #git-after {
+    display: inline-block;
+    transition: 0.3s;
+}
+
+#git:hover > #git-before {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .main-container {
+        grid-template-columns: 100%;
+        grid-template-rows: 35vh repeat(6, auto);
+        grid-template-areas: 
+            "one"
+            "two"
+            "four"
+            "six"
+            "eight"
+            "three"
+            "five";
+    }  
+    
+    .seven {
+        display: none;
+    }
+    
+    .eight {
+        height: 50vh;
+    }
+
+    .header {
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 70% 30%;
+        grid-template-areas: 
+            ". t ."
+            "v v v";
+    }
+
+    .header-main {
+        grid-area: t;
+        color: rgba(255,255,255,1);
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: 
+            ". . . ."
+            ". i h1 ."
+            ". . h2 ."
+            ". . . .";
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .header-main > img {
+        grid-area: i;
+        height: 65pt;
+        margin-right: 20pt;
+        opacity: 0.7;
+    }
+
+    .header-main > h1 {
+        margin: 0;
+        font-size: 2.3em;
+        font-weight: normal;
+        align-self: center;
+    }
+    
+    .header-main > h2 {
+        grid-area: h2;
+        margin: 0;
+        font-size: 1.2em;
+        align-self: baseline;
+        text-align: center;
+        position: relative;
+        top: -13pt;
+    }
+
+    .header-btns {
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+    }
+
+    .header-btns > button {
+        color: rgba(255, 255, 255, 0.5);
+        border: none;
+        background: none;
+    }
+
+    #left-btn {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 10%;
+    }
+
+    #left-link {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    #middle-btn {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 80%;
+    }
+
+    #middle-link {
+        font-size: 13pt;
+        color: rgba(255, 255, 255, 0.5);
+        height: 100%;
+    }
+
+    #right-btn {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 10%;
+    }
+
+    #right-link {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    #creator-p {
+        font-size: 1.4em;
+        line-height: 30pt;
+    }
+
+    .body-credits > .footer {
+        font-size: 3em;
+    }
+}

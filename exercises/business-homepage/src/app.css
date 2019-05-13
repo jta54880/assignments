@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15vw auto 15vw; 
+    grid-template-rows: 30vh auto 30vh;
+    grid-template-areas: 
+        "nav nav nav"
+        ". main ."
+        "foot foot foot";
+}
+
+.navbar {
+    grid-area: nav;
+}
+
+.main {
+    grid-area: main;
+}
+
+.card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    display: grid;
+    grid-template-columns: 34vw; 
+    grid-template-rows: 30vh auto auto auto;
+    grid-template-areas: 
+        "img"
+        "title"
+        "price"
+        "desc";
+    border-radius: 3pt;
+    margin: 0 auto;
+}
+
+#card-img {
+    grid-area: img;
+    margin-top: 7pt;
+    background-image: url("https://images.unsplash.com/photo-1552321524-9407ef014f47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    border-top-left-radius: 3pt;
+    border-top-right-radius: 3pt; 
+}
+
+#card-title {
+    grid-area: title;
+    padding-left: 5pt;
+    background: aliceblue;
+}
+
+#card-price {
+    grid-area: price; 
+    padding-left: 10pt;
+}
+
+#card-desc {
+    grid-area: desc;
+    padding: 3% 10%;
+    border-bottom-left-radius: 3pt;
+    border-bottom-right-radius: 3pt; 
+    background: aqua;
+    color: navy;
+}
+
+.main > h2 {
+    padding: 8pt;
+}
+
+.main > h3 {
+    margin-bottom: 8pt;
+    border-bottom: solid 1pt black;
+}
+
+.img-container {
+    margin: 15pt;
+    display: grid;
+    grid-template-columns: 32% auto 32% auto 32%; 
+    grid-template-rows: 25vh;
+    grid-template-areas: 
+        "one . two . three";
+}
+
+#img-one {
+    grid-area: one;
+    background-image: url("https://images.unsplash.com/photo-1481219931816-f36d0d1bd315?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#img-two {
+    grid-area: two;
+    background-image: url("https://images.unsplash.com/photo-1511022890239-e52f7d3bec4d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#img-three {
+    grid-area: three;
+    background-image: url("https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer {
+    grid-area: foot;
+}

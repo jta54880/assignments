@@ -1,0 +1,67 @@
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One|Libre+Baskerville:400,400italic);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Julius Sans One", Arial, Helvetica, sans-serif
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.card-container {
+    margin-bottom: 10pt;
+    display: grid;
+    grid-template-columns: auto 70vw auto;
+    grid-template-rows: 5vh 50vh repeat(4, auto) 5vh;
+    grid-template-areas: 
+        ". . ."
+        ". img ."
+        ". ttl ."
+        ". pr ."
+        ". pm ."
+        ". . .";
+    justify-content: center;
+    align-items: center;
+}
+
+#card-image {
+    grid-area: img;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+        "ctc"
+        ".";
+    justify-content: center;
+    align-items: center;
+}
+
+#card-time-color {
+    grid-area: ctc;
+    height: 100%;
+    padding-left: 10pt;
+    padding-top: 15pt;
+}
+
+#card-title {
+    grid-area: ttl;
+    padding: 10pt;
+}
+
+#card-price {
+    grid-area: pr;
+    padding: 20pt;
+}
+
+#card-price-meter {
+    grid-area: pm;
+    padding: 20pt;
+    border-bottom: solid 1pt slategrey;
+}

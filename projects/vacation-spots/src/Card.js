@@ -12,7 +12,7 @@ const Card = (props) => {
         background: "rgba(0,255,127,0.75)",
         color: "slategray"
     } : props.vacationSpot.timeToGo === "Summer" ? {
-        background: "rgba(30, 139, 195, 0.75) ",
+        background: "rgba(252, 151, 141, 0.75) ",
         color: "#f7f7f7"   
     } : props.vacationSpot.timeToGo === "Fall" ? {
         background: "rgba(255,104,4, 0.75)",
@@ -23,6 +23,7 @@ const Card = (props) => {
     }
 
     const priceMeter = props.vacationSpot.price < 500 ? "$" : props.vacationSpot.price < 1000 ? "$ $" : "$ $ $"
+    
     return (
         <div className="card-container">
             <div id="card-image" style={backgroundImg}>

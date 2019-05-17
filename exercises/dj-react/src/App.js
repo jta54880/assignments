@@ -1,5 +1,6 @@
 import React from "react"
 import Square from "./Square"
+import Form from "./Form"
 import "./styles.css"
 
 class App extends React.Component {
@@ -7,7 +8,15 @@ class App extends React.Component {
         super()
         this.state = {
             colors: ["white", "black", "black", "white"],
-            colorArr: ["white", "black", "blue", "red", "purple", "pink", "green", "yellow"]
+            colorArr: ["white", "black", "blue", "red", "purple", "pink", "green", "yellow"],
+            firstName: "",
+            lastName: "",
+            age: "",
+            gender: "",
+            style: "",
+            isDubstep: false,
+            isTechno: false
+            
         }
     }
 
@@ -108,7 +117,14 @@ class App extends React.Component {
         this.setState({ colors: resetColorArr })
     }
 
+    handleChange = (e) => {
+        console.log(e.target.value)
+        const {name, value, type, checked} = e.target
+        this.setState({[name]: type === "checkbox" ? checked : value})
+    }
+
     render() {
+        console.log(this.state)
         const squares = this.state.colors.map((color, i) => 
             <Square
                 key={color+i}
@@ -170,6 +186,24 @@ class App extends React.Component {
                         onClick={this.handleResetAll}>
                         Reset All Box Colors
                     </button>
+                </div>
+                <div className="form">
+                    <Form 
+                        firstName={this.state.firstName}
+                        lastName={this.state.lastName}
+                        age={this.state.age}
+                        gender={this.state.gender}
+                        style={this.state.style}
+                        isDubstep={this.state.isDubstep}
+                        isTechno={this.state.isDubstep}
+                        handleChange={this.handleChange}
+                    />
+                    <div>
+                        <p>Name: {this.state.firstName} {this.state.lastName}</p>
+                        <p>Age: {this.state.age}</p>
+                        <p>Style: {this.state.style}</p>
+                        <p>DubStep: {this.state.isDubstep ? "true" : "false"}</p>
+                    </div>
                 </div>
             </div>
         )

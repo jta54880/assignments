@@ -9,11 +9,12 @@
     display: grid;
     grid-gap: 2pt;
     grid-template-columns: 1fr 2fr 2fr 1fr;
-    grid-template-rows: 30vh 30vh auto;
+    grid-template-rows: 30vh 30vh auto auto;
     grid-template-areas: 
         ". one two ."
         ". three four ."
-        "btn btn btn btn";
+        "btn btn btn btn"
+        "form form form form";
     justify-content: center;
     align-items: center;
 }
@@ -58,4 +59,8 @@
 
 .btns > button:hover {
     cursor: pointer;
+}
+
+.form {
+    grid-area: form;
 }

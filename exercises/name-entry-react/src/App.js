@@ -5,7 +5,7 @@ class App extends React.Component {
         super()
         this.state = {
             listItems: [],
-            name: "",
+            name: ""
         }
     }
 
@@ -15,10 +15,14 @@ class App extends React.Component {
     }
 
     handleSubmit = (e) => {
+        const person = {
+            name: this.state.name,
+            inEditMode: false
+        }
         e.preventDefault()
         this.setState(prevState => {
             // prevState.listItems.push(prevState.name)
-            return {listItems: [...prevState.listItems, prevState.name], name: ""}
+            return {listItems: [...prevState.listItems, person], name: ""}
         })
     }
 
@@ -29,10 +33,54 @@ class App extends React.Component {
         })
     }
 
+    handleEdit = (i) => {
+        console.log("fired", i)
+        this.setState(prevState => {
+            const updatedListItems = [...prevState.listItems]
+            updatedListItems[i].inEditMode = true
+            return {listItems: updatedListItems}
+        })
+    }
+
+    handleEditDone = (i) => {
+        console.log("hello",i)
+        this.setState(prevState => {
+            const updatedListItems = [...prevState.listItems]
+            updatedListItems[i].inEditMode = false
+            return {listItems: updatedListItems}
+        })
+    }
+
+    handleChangeEdit = (e) => {
+        const {name, value} = e.target
+        this.setState({[name]: value})
+    }
+
     render() {
-        const orderedListItems = this.state.listItems.map((item, i) => (
-            <li key={item+i}>{item}<button onClick={() => this.handleDelete(i)}>|x|</button></li>
-        ))
+        
+
+        const orderedListItems = this.state.listItems.map((item, i) => {
+            const defaultStyle = {}
+            const editStyle = {}
+            item.inEditMode ? defaultStyle.display = "none" : editStyle.display = "none"
+            return (
+                <li key={item.name+i}>
+                    <div style={defaultStyle} onClick={() => this.handleEdit(i)}>
+                        {item.name}
+                        <button onClick={() => this.handleDelete(i)}>|x|</button>
+                    </div>
+                    <input 
+                        style={editStyle} 
+                        type="text" 
+                        name="name"
+                        value={item.name}
+                        onChange={this.handleChangeEdit}
+                        onDoubleClick={() => this.handleEditDone(i)}
+                    />
+                </li>
+            )
+        })
+        console.log(this.state.listItems)
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>

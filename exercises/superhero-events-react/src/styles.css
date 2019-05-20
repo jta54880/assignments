@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cards-container {
+    margin: 0 auto;
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1 1 50%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 20vh 100vh;
+}
+
+.card > h1 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.card > div {
+    grid-column: 1 / -1;
+    grid-row: 2;
+}

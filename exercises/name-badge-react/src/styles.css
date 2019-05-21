@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#form {
+    padding: 25pt 0;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 10pt;
+    grid-template-columns: 1fr 4fr 0.5fr 4fr 1fr;
+    grid-template-rows: auto;
+    border-radius: 8pt;
+    border: solid 1pt black;
+}
+
+#firstName {
+    grid-column: 2;
+}
+
+#lastName {
+    grid-column: 4;
+}
+
+#email {
+    grid-column: 2;
+}
+
+#pob {
+    grid-column: 4;
+}
+
+#phone {
+    grid-column: 2;
+}
+
+#food {
+    grid-column: 4;
+}
+
+#description {
+    grid-column: 2 / 5;
+}
+
+#description::placeholder {
+    color: black;
+}
+
+#button {
+    grid-column: 3;
+    text-align: center;
+    width: 50pt;
+    height: 35pt;
+}
+
+.badge-container {
+    padding-bottom: 25pt;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 10pt;
+    grid-template-columns: 1fr 4fr 0.5fr 4fr 1fr;
+    grid-template-rows: auto;
+    border-radius: 8pt;
+    border: solid 1pt black;
+}
+
+.title {
+    grid-column: 1 / -1;
+    border-top-left-radius: 8pt;
+    border-top-right-radius: 8pt;
+    height: 100%;
+    margin: 0;
+}
+
+.name {
+    grid-column: 2;
+    margin: 0;
+}
+
+.phone {
+    grid-column: 4;
+    margin: 0;
+}
+
+.place-of-birth {
+    grid-column: 2;
+    margin: 0;
+}
+
+.favorite-food {
+    grid-column: 4;
+    margin: 0;
+}
+
+.email {
+    grid-column: 2;
+    margin: 0;
+}
+
+.description {
+    grid-column: 2 / 5;
+    margin: 0;
+}

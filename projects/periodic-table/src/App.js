@@ -7,7 +7,8 @@ class App extends React.Component {
         super()
         this.state = {
             elements: [],
-            isActive: false
+            isActive: false,
+            show: false
         }
         this.toggleClass = this.toggleClass.bind(this)
     }
@@ -22,6 +23,34 @@ class App extends React.Component {
                 this.setState({elements: response.elements}) 
                 
             })
+    }
+
+    showModal = (num) => {
+        // this.setState({ elements: true });
+        this.setState(prevState => {
+            const updatedElements = prevState.elements.map(element => {
+                if (element.number === num) {
+                    element.isActive = true 
+                    return element   
+                }
+                return element
+            })
+            return { elements: updatedElements }
+        })
+    }
+    
+    hideModal = (num) => {
+        // this.setState({ show: false });
+        this.setState(prevState => {
+            const updatedElements = prevState.elements.map(element => {
+                if (element.number === num) {
+                    element.isActive = false 
+                    return element   
+                }
+                return element
+            })
+            return { elements: updatedElements }
+        })
     }
 
     toggleClass(num) {
@@ -44,6 +73,9 @@ class App extends React.Component {
                 key={element.number}
                 element={element}
                 isActive={this.state.isActive}
+                show={this.state.show}
+                handleOpen={this.showModal}
+                handleClose={this.hideModal}
                 toggleClass={this.toggleClass}
             />
         ))

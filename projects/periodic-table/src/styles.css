@@ -57,6 +57,12 @@
         "sym sym sym";
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
+}
+
+.wrapper:hover {
+    background: white;
+    transition: 0.5s;
 }
 
 .element-atomic-number {
@@ -81,6 +87,38 @@
 }
 
 .invisible {
+    display: none;
+    transition: 0.5s;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    transition: 0.5s;
+}
+
+.modal-main {
+    position:fixed;
+    background: white;
+    width: 60%;
+    height: 60vh;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    transition: 0.5s;
+    font-size: 2em;
+}
+
+.display-block {
+    display: block;
+    transition: 0.5s;
+}
+
+.display-none {
     display: none;
     transition: 0.5s;
 }

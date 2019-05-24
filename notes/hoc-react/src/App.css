@@ -1,0 +1,17 @@
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.dark-theme {
+    background-color: #333;
+    color: #b5b51e;
+}
+
+.light-theme {
+    background-color: white;
+    color: #333;
+}

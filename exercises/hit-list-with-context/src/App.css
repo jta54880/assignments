@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 15vh minmax(70vh, auto) 15vh;
+}
+
+.navbar {
+    background: black;
+    grid-row: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.the-don {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXvsvrRKqjkeW6tVGXGfjgBzWA--uVwg8mWYDXlSAzWbZipdyw");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 30%;
+}
+
+.body {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(9, 11.11%);
+}
+
+.target:nth-child(odd) {
+    grid-column: 2 / 4;
+}
+
+.target:nth-child(even) {
+    grid-column: 6 / 8;
+}
+
+.target:last-child {
+    grid-column: 4 / 6;
+}
+
+.target {
+    width: 100%;
+    margin: 10pt 0;
+    text-decoration: none;
+}
+
+.target > div {
+    width: 33.33vw;
+    height: 40vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+}
+
+.target > div > p {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    color: #333;
+    margin: 0;
+    padding: 10pt 0;
+}

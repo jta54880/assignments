@@ -1,33 +1,98 @@
-.App {
-  text-align: center;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.app-container {
+    width: 100vw;
+    height: auto;
+    display: grid;
+    grid-template-rows: 15vh minmax(75vh, auto) 10vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar {
+    grid-row: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background: aliceblue;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-item {
+    text-decoration: none;
+    color: cornflowerblue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.body {
+    grid-row: 2;
+    background: #f7f7f7;
+    color: #333;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: 10vw auto 10vw;
+    grid-template-rows: 10% 40% 50%;
+    justify-content: center;
+    align-items: center;  
+}
+
+.home > h1 {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+}
+
+.home > p {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;  
+}
+
+.jokes {
+    display: grid;
+    grid-template-columns: 10vw auto 10vw;
+    grid-template-rows: auto 10% 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.joke-title {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.jokes > button {
+    grid-column: 2;
+    grid-row: 2;
+    border: none;
+    background: none;
+    color: cornflowerblue;
+    transition: 0.5s;
+}
+
+.jokes > button:hover {
+    background: cornflowerblue;
+    color: aliceblue;
+    transition: 0.5s; 
+}
+
+.joke {
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 1.5em;
+    align-self: start;
+}
+
+.footer {
+    grid-row: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background: cornflowerblue;
+    color: aliceblue;
 }

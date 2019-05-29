@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #f7f7f7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.app-container {
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 10vh minmax(80vh, auto) 10vh;
+    grid-template-columns: auto;
+    grid-template-areas: 
+        "n"
+        "c"
+        "f";
+}
+
+.navbar {
+    width: 100%;
+    grid-area: n;
+    background: rgba(5, 5, 5, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title, .navbar > a {
+    text-decoration: none;
+    color: #f7f7f7;
+}
+
+.title, .navbar > a:last-child {
+    padding: 0 10pt;
+}
+
+.body {
+    width: 100%;
+    grid-area: c;
+}
+
+.home {
+    background: #f7f7f7;
+}
+
+.erased-container {
+    background: #f7f7f7;
+}
+
+.canvas-container button {
+    border: none;
+    border-radius: 2pt;
+    transition: 0.3s;
+}
+
+.canvas-container button:hover {
+    background: rgba(3, 3, 3, 0.25);
+    color: #f7f7f7;
+    border-radius: 2pt;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+canvas {
+    border: solid 1pt black;
+}
+
+.tools-btns, .colored-btns {
+    border: none;
+    border-radius: 3pt;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tool-btn {
+    flex: 1 1 50%;
+}
+
+.colored-btns > button {
+    flex: 1 1 33%;
+}
+
+.footer {
+    width: 100%;
+    grid-area: f;
+    background: aliceblue;
+}

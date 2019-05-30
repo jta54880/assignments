@@ -3,7 +3,10 @@ import React from "react"
 const Home = () => {
     return (
         <div className="body home">
-            Home...
+            <div className="title-container">
+                <h1 className="home-title">Welcome to Erased</h1>
+                <h3 className="home-subtitle">Tell a Story Via Sketch</h3>
+            </div>
         </div>
     )
 }

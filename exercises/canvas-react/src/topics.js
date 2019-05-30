@@ -3,11 +3,11 @@ const topics = {
         animals: 
             ["monkey", "elephant", "lion", "tiger", "giraffe", "panda", "hippo", "gorilla", "penguin", "rhinoceros", "zebra"],
         videoGameCharacters: 
-            ["mario", "luigi", "pacman", "zelda", "bowser", "sonic"],
+            ["mario", "luigi", "pacman", "zelda", "bowser", "sonic", "princess peach"],
         marvelCharacters: 
-            ["thanos", "loki", "wolverine", "drax", "hulk", "thor", "gamora"],
+            ["thanos", "loki", "wolverine", "captain america", "drax", "hulk", "thor", "gamora", "iron man"],
         disneyCharacters:
-            ["aladdin", "belle", "moana", "mufasa", "stitch", "elsa"],
+            ["aladdin", "belle", "moana", "mufasa", "stitch", "elsa", "wreck it ralph", "lilo"],
     },
     locations: 
         ["beach", "office", "park", "city", "mountains", "ocean", "school", "restaurant", "airplane", "car"],

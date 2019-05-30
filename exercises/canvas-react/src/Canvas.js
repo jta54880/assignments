@@ -103,9 +103,13 @@ class Canvas extends React.Component {
     }
 
     render() {
+        const modalShowClass = this.props.showModal ? "display-block" : "display-none"
         return (
             <div className="body canvas-container">
-                <h1 className="canvas-title">Canvas</h1>
+                <div>
+                    <h1>Canvas</h1>
+                    <button onClick={this.props.openModal}>Get Inspired</button>
+                </div>
                 <canvas 
                     ref="canvas"
                     width={window.innerWidth}
@@ -177,6 +181,22 @@ class Canvas extends React.Component {
                         className="canvas-btn btn-black"
                     >Black</button>
                 </div>
+                
+                <div className={`get-inspired-container modal ${modalShowClass}`}>
+                    <section className="modal-main">
+                        <button onClick={this.props.closeModal}>-</button>
+                        {this.props.character !== "" ? 
+                            <div style={{width: "100%", height: "100%"}}>
+                                <div style={{backgroundImage: `url(${this.props.characterGif.url})`, backgroundPosition: "center", backgroundSize: "cover", height: "30%", width: "100%"}}></div>
+                                <div style={{backgroundImage: `url(${this.props.locationGif.url})`, backgroundPosition: "center", backgroundSize: "cover", height: "30%", width: "100%"}}></div>
+                                <div style={{backgroundImage: `url(${this.props.activityGif.url})`, backgroundPosition: "center", backgroundSize: "cover", height: "30%", width: "100%"}}></div>
+                            </div>
+                            :
+                            <p>Submit Character Form to Get Inspired (on Play Erased page)</p>
+                        }
+                    </section>
+                </div>
+
             </div>
         )
     }

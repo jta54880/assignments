@@ -35,9 +35,17 @@ class PlayErased extends React.Component {
                     </select>
                     <button>Generate Topics</button>
                 </form>
-                <div className="character">Character: {this.props.character}</div>
-                <div className="location">Location: {this.props.place}</div>
-                <div className="activity">Activity: {this.props.activity}</div>
+                <div className="topics-container">
+                    <div className="character">Character: {this.props.character}</div>
+                    <div className="location">Location: {this.props.place}</div>
+                    <div className="activity">Activity: {this.props.activity}</div>
+                    
+                    <div style={{backgroundImage: `url(${this.props.characterGif.url})`, backgroundPosition: "center", backgroundSize: "cover"}} className="character-gif"></div>
+
+                    <div style={{backgroundImage: `url(${this.props.locationGif.url})`, backgroundPosition: "center", backgroundSize: "cover"}} className="location-gif"></div>
+
+                    <div style={{backgroundImage: `url(${this.props.activityGif.url})`, backgroundPosition: "center", backgroundSize: "cover"}} className="activity-gif"></div>
+                </div>
             </div>
         )
     }

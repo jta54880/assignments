@@ -10,9 +10,10 @@ class DataProvider extends React.Component {
             character: "",
             place: "",
             activity: "",
-            characterGif: "",
-            locationGif: "",
-            activityGif: ""
+            characterGif: {url: "", title: ""},
+            locationGif: {url: "", title: ""},
+            activityGif: {url: "", title: ""},
+            showModal: false
         }
     }
 
@@ -53,25 +54,37 @@ class DataProvider extends React.Component {
     getCharacterGif = () => {
         console.log(this.state.character)
         axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.character}&limit=1&rating=g&api_key=2BAuMS8Ig47TgMnBJXotOjDbQtjy6bYa`).then(response => {
-            const { url } = response.data.data[0] 
-            this.setState({ characterGif: url })
+            console.log(response.data.data[0].images.original.url)
+            const { url } = response.data.data[0].images.original 
+            const { title } = response.data.data[0]
+            this.setState({ characterGif: { url, title }})
         })
     }
 
     getLocationGif = () => {
         console.log(this.state.place)
         axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.place}&limit=1&rating=g&api_key=2BAuMS8Ig47TgMnBJXotOjDbQtjy6bYa`).then(response => {
-            const { url } = response.data.data[0] 
-            this.setState({ locationGif: url })
+            const { url } = response.data.data[0].images.original 
+            const { title } = response.data.data[0] 
+            this.setState({ locationGif: { url, title }})
         })
     }
 
     getActivityGif = () => {
         console.log(this.state.activity)
         axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.activity}&limit=1&rating=g&api_key=2BAuMS8Ig47TgMnBJXotOjDbQtjy6bYa`).then(response => {
-            const { url } = response.data.data[0] 
-            this.setState({ activityGif: url })
+            const { url } = response.data.data[0].images.original 
+            const { title } = response.data.data[0] 
+            this.setState({ activityGif: { url, title }})
         })
+    }
+
+    openModal = () => {
+        this.setState({ showModal: true })
+    }
+
+    closeModal = () => {
+        this.setState({ showModal: false })
     }
 
     render() {
@@ -81,6 +94,8 @@ class DataProvider extends React.Component {
                 getRandomCharacter: this.getRandomCharacter,
                 getRandomLocation: this.getRandomLocation,
                 getRandomActivity: this.getRandomActivity,
+                openModal: this.openModal,
+                closeModal: this.closeModal
             }}>
                 {this.props.children}
             </Provider>

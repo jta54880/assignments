@@ -13,7 +13,8 @@ class DataProvider extends React.Component {
             characterGif: {url: "", title: ""},
             locationGif: {url: "", title: ""},
             activityGif: {url: "", title: ""},
-            showModal: false
+            showModal: false,
+            showMenuLinks: false
         }
     }
 
@@ -87,6 +88,14 @@ class DataProvider extends React.Component {
         this.setState({ showModal: false })
     }
 
+    showMenu = () => {
+        this.setState({ showMenuLinks: true })
+    }
+
+    closeMenu = () => {
+        this.setState({ showMenuLinks: false })
+    }
+
     render() {
         return (
             <Provider value={{
@@ -95,7 +104,9 @@ class DataProvider extends React.Component {
                 getRandomLocation: this.getRandomLocation,
                 getRandomActivity: this.getRandomActivity,
                 openModal: this.openModal,
-                closeModal: this.closeModal
+                closeModal: this.closeModal,
+                showMenu: this.showMenu,
+                closeMenu: this.closeMenu
             }}>
                 {this.props.children}
             </Provider>

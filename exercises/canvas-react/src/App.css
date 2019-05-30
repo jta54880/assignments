@@ -1,9 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #f7f7f7;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: "Amatic SC", 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button {
+    font-family: "Amatic SC", 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+select {
+    border: none;
 }
 
 .app-container {
@@ -20,19 +29,80 @@ body {
 .navbar {
     width: 100%;
     grid-area: n;
-    background: rgba(5, 5, 5, 0.3);
+    background: rgb(234,230,234);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.title, .navbar > a {
+.menu-links > a {
     text-decoration: none;
-    color: #f7f7f7;
+    font-size: 2em;
+    color: #FD5B78;
+    transition: 0.1s;
+}
+
+.menu-links > a:hover {
+    /* border-bottom: solid 2pt #AAF0D1; */
+    color: #50BFE6;
+    transition: 0.1s;
 }
 
 .title, .navbar > a:last-child {
+    padding-right: 10pt;
+}
+
+.navbar > h1 {
+    margin-left: 10pt;
+    font-family: "Amatic SC";
+    font-size: 2.5em;
+    color: #C8C8CD;
+    border: solid 2pt#C8C8CD;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 3pt;
     padding: 0 10pt;
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: space-between; */
+    background: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    height: 100vh;
+    width: auto;
+    top: 0;
+}
+
+.menu-links > * {
+    margin: 10pt 5pt;
+}
+
+.show-menu-links {
+    display: flex;
+}
+
+.hide-menu-links {
+    display: none;
+}
+
+.menu-btn, .close-menu-btn {
+    font-size: 1.5em;
+    color: #FD5B78;
+    border: none;
+    background: none;
+    transition: 0.2s;
+}
+
+.close-menu-btn {
+    font-size: 2em;
+}
+
+.menu-btn:hover, .close-menu-btn:hover {
+    cursor: pointer;
+    color: #50BFE6;
+    transition: 0.2s;
 }
 
 .body {
@@ -41,7 +111,7 @@ body {
 }
 
 .home {
-    background-image: url("");
+    background-image: url("https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80");
     background-position: center;
     background-size: cover;
     display: flex;
@@ -50,12 +120,21 @@ body {
 }
 
 .title-container {
-    border: solid 1pt #333;
+    padding: 25pt 40pt;
+    border: solid 6pt rgba(200, 200, 200, 0.4);
+    border-radius: 3pt;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    font-size: 2em;
+    font-family: "Amatic SC";
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.title-container > * {
+    margin: 0;
 }
 
 .erased-container {
@@ -70,7 +149,7 @@ body {
 
 .character {
     grid-column: 2;
-    grid-row: 2
+    grid-row: 2;
 }
 
 .character-gif {
@@ -80,7 +159,7 @@ body {
 
 .location {
     grid-column: 4;
-    grid-row: 2
+    grid-row: 2;
 }
 
 .location-gif {
@@ -90,7 +169,7 @@ body {
 
 .activity {
     grid-column: 6;
-    grid-row: 2
+    grid-row: 2;
 }
 
 .activity-gif {
@@ -127,8 +206,8 @@ canvas {
 
 .tool-btn {
     flex: 1 1 50%;
-    height: 30pt;
-    font-size: 1em;
+    height: minmax(30pt auto);
+    font-size: 1.5em;
 }
 
 .colored-btns > button {
@@ -140,7 +219,12 @@ canvas {
 .footer {
     width: 100%;
     grid-area: f;
-    background: aliceblue;
+    background: darkslateblue;
+    color: #f7f7f7;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .modal {
@@ -156,12 +240,16 @@ canvas {
 .modal-main {
     position:fixed;
     background: white;
-    width: 60%;
-    height: 60vh;
+    width: 50%;
+    height: 100vh;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
     transition: 0.5s;
+    font-size: 2em;
+}
+
+.modal-btn {
     font-size: 2em;
 }
 
@@ -173,4 +261,10 @@ canvas {
 .display-none {
     display: none;
     transition: 0.5s;
+}
+
+@media (max-width: 600px) {
+    .modal-main {
+        width: 100%;
+    }
 }

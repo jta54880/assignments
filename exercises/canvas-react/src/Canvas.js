@@ -108,7 +108,7 @@ class Canvas extends React.Component {
             <div className="body canvas-container">
                 <div>
                     <h1>Canvas</h1>
-                    <button onClick={this.props.openModal}>Get Inspired</button>
+                    <button className="modal-btn" onClick={this.props.openModal}>Get Inspired</button>
                 </div>
                 <canvas 
                     ref="canvas"
@@ -184,15 +184,15 @@ class Canvas extends React.Component {
                 
                 <div className={`get-inspired-container modal ${modalShowClass}`}>
                     <section className="modal-main">
-                        <button onClick={this.props.closeModal}>-</button>
+                        <button className="modal-btn" onClick={this.props.closeModal}>X</button>
                         {this.props.character !== "" ? 
                             <div style={{width: "100%", height: "100%"}}>
-                                <div style={{backgroundImage: `url(${this.props.characterGif.url})`, backgroundPosition: "center", backgroundSize: "cover", height: "30%", width: "100%"}}></div>
-                                <div style={{backgroundImage: `url(${this.props.locationGif.url})`, backgroundPosition: "center", backgroundSize: "cover", height: "30%", width: "100%"}}></div>
-                                <div style={{backgroundImage: `url(${this.props.activityGif.url})`, backgroundPosition: "center", backgroundSize: "cover", height: "30%", width: "100%"}}></div>
+                                <div style={{backgroundImage: `url(${this.props.characterGif.url})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", height: "30%", width: "100%"}}></div>
+                                <div style={{backgroundImage: `url(${this.props.locationGif.url})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", height: "30%", width: "100%"}}></div>
+                                <div style={{backgroundImage: `url(${this.props.activityGif.url})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", height: "30%", width: "100%"}}></div>
                             </div>
                             :
-                            <p>Submit Character Form to Get Inspired (on Play Erased page)</p>
+                            <p>Submit Character Form to Get Inspired (go to 'Play Sketched' page from the Menu)</p>
                         }
                     </section>
                 </div>

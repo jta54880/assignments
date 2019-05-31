@@ -9,6 +9,10 @@ class PlayErased extends React.Component {
         }
     }
 
+    componentDidMount = () => {
+        this.setState({charCategory: "any"})
+    }
+
     handleChange = (e) => {
         const { name, value } = e.target
         this.setState({ [name]: value })
@@ -26,10 +30,10 @@ class PlayErased extends React.Component {
             <div className="body erased-container">
                 <form onSubmit={this.handleSubmit}>
                     <select name="charCategory" onChange={this.handleChange}>
-                        <option value="">Select Character Category</option>
                         <option value="any">Any Character</option>
                         <option value="animals">Animals</option>
                         <option value="videoGame">Video Game Characters</option>
+                        <option value="dc">DC Characters</option>
                         <option value="marvel">Marvel Characters</option>
                         <option value="disney">Disney Characters</option>
                     </select>

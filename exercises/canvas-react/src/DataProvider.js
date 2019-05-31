@@ -19,8 +19,8 @@ class DataProvider extends React.Component {
     }
 
     getRandomCharacter = (category) => {
-        const { animals, videoGameCharacters, marvelCharacters, disneyCharacters } = topics.characters
-        const anyArr = [...animals, ...videoGameCharacters, ...marvelCharacters, ...disneyCharacters]
+        const { animals, videoGameCharacters, marvelCharacters, dcCharacters, disneyCharacters } = topics.characters
+        const anyArr = [...animals, ...videoGameCharacters, ...dcCharacters, ...marvelCharacters, ...disneyCharacters]
 
         category === "any" ? 
             this.setState({character: anyArr[Math.floor(Math.random() * anyArr.length)]}, this.getCharacterGif) 
@@ -37,7 +37,8 @@ class DataProvider extends React.Component {
         category === "disney" ? 
             this.setState({character: disneyCharacters[Math.floor(Math.random() * disneyCharacters.length)]}, this.getCharacterGif) 
             : 
-        alert("no character type selected")
+        category === "dc" && 
+            this.setState({character: dcCharacters[Math.floor(Math.random() * dcCharacters.length)]}, this.getCharacterGif) 
     }
 
     getRandomLocation = () => {

@@ -10,6 +10,9 @@ class Canvas extends React.Component {
             brushXY: [],
             lineWidth: 10,
             brushColor: "black",
+            finishCharacter: false,
+            finishLocation: false,
+            finishActivity: false
         }
     }
 
@@ -102,12 +105,51 @@ class Canvas extends React.Component {
         this.ctx.lineWidth = 10
     }
 
+    handleChange = (e) => {
+        const { name } = e.target
+        this.setState(prevState => ({[name]: !prevState[name]}))
+    }
+
     render() {
         const modalShowClass = this.props.showModal ? "display-block" : "display-none"
         return (
             <div className="body canvas-container">
-                <div>
+                <div className="canvas-header">
                     <h1>Canvas</h1>
+                    {this.props.character !== "" && 
+                        <div className="topics">
+                            <div className="canvas-topic-container">
+                                {this.state.finishCharacter ? 
+                                    <h3 style={{textDecoration: "line-through", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Character- {this.props.character}
+                                    </h3> 
+                                    : 
+                                    <h3 style={{transition: "0.45s"}} className="topic-header">Character- {this.props.character}</h3>
+                                }
+                                <input type="checkbox" name="finishCharacter" onChange={this.handleChange}/>
+                            </div>
+                            
+                            <div className="canvas-topic-container">
+                                {this.state.finishLocation ? 
+                                    <h3 style={{textDecoration: "line-through", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Location- {this.props.place}
+                                    </h3> 
+                                    : 
+                                    <h3 style={{transition: "0.45s"}} className="topic-header">Location- {this.props.place}</h3>
+                                }
+                                <input type="checkbox" name="finishLocation" onChange={this.handleChange}/>
+                            </div>
+                            
+                            <div className="canvas-topic-container">
+                                {this.state.finishActivity ? 
+                                    <h3 style={{textDecoration: "line-through", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Activity- {this.props.activity}
+                                    </h3> 
+                                    : 
+                                    <h3 style={{transition: "0.45s"}} className="topic-header">Activity- {this.props.activity}</h3>
+                                }
+                                <input type="checkbox" name="finishActivity" onChange={this.handleChange}/>
+                            </div>
+                            
+                        </div>
+                    }
                     <button className="modal-btn" onClick={this.props.openModal}>Get Inspired</button>
                 </div>
                 <canvas 
@@ -133,11 +175,11 @@ class Canvas extends React.Component {
                     <button 
                         className="tool-btn"
                         onClick={this.brushSizeUp} 
-                    >Increase Brush Size (+ 5pt)</button>
+                    >+ Increase Brush Size +</button>
                     <button 
                         className="tool-btn"
                         onClick={this.brushSizeDown} 
-                    >Decrease Brush Size (- 5pt min: 1pt){this.state.lineWidth}</button>
+                    >- Decrease Brush Size -</button>
                     <button 
                         className="tool-btn"
                         onClick={this.clearCanvas} 

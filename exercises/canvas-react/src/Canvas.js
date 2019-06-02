@@ -18,6 +18,7 @@ class Canvas extends React.Component {
 
     componentDidMount = () => {
         this.clearCanvas()
+        window.scrollTo(0,0)
     }
 
     draw = () => {

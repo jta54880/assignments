@@ -1,7 +1,7 @@
 import React from "react"
 import Navbar from "./Navbar.js"
 import Home from "./Home.js"
-import PlayErased from "./PlayErased.js"
+import PlayErased from "./PlaySketched.js"
 import Canvas from "./Canvas.js"
 import Footer from "./Footer.js"
 import { Switch, Route } from "react-router-dom"

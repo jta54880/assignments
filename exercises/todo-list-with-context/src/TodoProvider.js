@@ -14,6 +14,12 @@ class TodoProvider extends Component {
         }
     }
 
+    getPexel = () => {
+        axios.get("https://api.pexels.com/v1/search?query=planets&per_page=9&page=1", {headers: {"Authorization": "563492ad6f91700001000001bf17a39203544a5d9a476769585a0850"}}).then(response => {
+            console.log(response.data)
+        })
+    }
+
     getTodos = () => {
         axios.get('https://api.vschool.io/jakeafuvai/todo').then(response => {
             this.setState( {todos: response.data} )
@@ -53,7 +59,8 @@ class TodoProvider extends Component {
                 ...this.state,
                 getTodos: this.getTodos,
                 deleteTodos: this.deleteTodos,
-                postTodo: this.postTodo
+                postTodo: this.postTodo,
+                getPexel: this.getPexel
             }} >
                 {/* In this case App is the child being referenced --> See index.js */}
                 {this.props.children}

@@ -137,43 +137,54 @@ select {
 }
 
 .erased-container {
-    background: #f7f7f7;
+    background: rgb(234,230,234);
+    display: grid;
+    grid-template-columns: 5vw auto 5vw;
+    grid-template-rows: 5vh auto 10vh auto 5vh;
+    grid-template-areas: 
+        ". . ."
+        ". desc ."
+        ". form ."
+        ". pics ."
+        ". . ."
+    ;
+}
+
+.description {
+    grid-area: desc;
+    align-self: center;
+    font-size: 1.5em;
+}
+
+.form {
+    grid-area: form;
+    justify-self: center;
+    align-self: center;
 }
 
 .topics-container {
-    display: grid;
-    grid-template-columns: 10vw 25vw auto 25vw auto 25vw 10vw;
-    grid-template-rows: auto auto 20vh auto auto ;
+    grid-area: pics;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.character {
-    grid-column: 2;
-    grid-row: 2;
+.character, .location, .activity, .form  * {
+    margin: 5pt 0;
+    padding: 10pt;
+    font-size: 2em;
+    background: #FD5B78;
+    border: none;
+    border-radius: 3pt;
+    transition: 0.3s;
 }
 
-.character-gif {
-    grid-column: 2;
-    grid-row: 3;
-}
-
-.location {
-    grid-column: 4;
-    grid-row: 2;
-}
-
-.location-gif {
-    grid-column: 4;
-    grid-row: 3;
-}
-
-.activity {
-    grid-column: 6;
-    grid-row: 2;
-}
-
-.activity-gif {
-    grid-column: 6;
-    grid-row: 3;
+.form > button:hover, .form > select {
+    cursor: pointer;
+    background: #50BFE6;
+    border-radius: 3pt;
+    transition: 0.3s;
 }
 
 .canvas-container button {
@@ -191,6 +202,7 @@ select {
 }
 
 .topics {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -203,8 +215,14 @@ select {
     align-items: center;
 }
 
+.canvas-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 canvas {
-    border: solid 2pt black;
+    border: solid 5pt rgba(0,0,0,.1);
 }
 
 .tools-btns, .colored-btns {
@@ -279,8 +297,17 @@ canvas {
     .title-container {
         font-size: 1em;
     }
+
+    .menu-links {
+        width: 100vw;
+    }
     
+    .character, .location, .activity, .form  * {
+        font-size: 1em;
+    }
+
     .modal-main {
         width: 100%;
     }
+
 }

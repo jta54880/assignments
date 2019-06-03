@@ -29,8 +29,19 @@ class DataProvider extends React.Component {
         axios.put(`https://api.vschool.io/jakeafuvai/todo/${id}`, newTodo).then(response => {
             this.setState(prevState => {
                 const index = prevState.todos.findIndex(todo => todo._id === id)
-                prevState.todos[index].title = newTodo.title
+                prevState.todos[index].title = response.data.title
                 return { todos: prevState.todos }
+            })
+        })
+    }
+
+    putCompleted = (id, complete) => {
+        axios.put(`https://api.vschool.io/jakeafuvai/todo/${id}`, complete).then(response => {
+            this.setState(prevState => {
+                const updatedTodos = prevState.todos.map(todo => {
+                    return todo._id === id ? todo.completed = response.data : todo
+                })
+                return { todos: updatedTodos }
             })
         })
     }
@@ -59,15 +70,29 @@ class DataProvider extends React.Component {
         this.setState({ todo: "" })
     }
 
+    deleteAllComplete = () => {
+        const completedTodos = this.state.todos.filter(todo => todo.completed)
+        completedTodos.forEach(todo => {
+            axios.delete(`https://api.vschool.io/jakeafuvai/todo/${todo._id}`).then(response => {
+                this.setState(prevState => {
+                    const updatedTodos = prevState.todos.filter(todo => !todo.completed)
+                    return { todos: updatedTodos }
+                })
+            })
+        })
+    }
+
     render() {
         return (
             <Provider value={{
                 ...this.state,
                 getTodoList: this.getTodoList,
                 putTodo: this.putTodo,
+                putCompleted: this.putCompleted,
                 deleteTodo: this.deleteTodo,
                 handleChange: this.handleChange,
-                handleSubmit: this.handleSubmit
+                handleSubmit: this.handleSubmit,
+                deleteAllComplete: this.deleteAllComplete
             }}>
                 {this.props.children}
             </Provider>

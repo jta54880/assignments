@@ -6,7 +6,7 @@ class Todo extends React.Component {
         super()
         this.state = {
             newTodo: "",
-            editMode: false
+            editMode: false,
         }
     }
 
@@ -17,6 +17,11 @@ class Todo extends React.Component {
     handleChange = e => {
         const { name, value } = e.target
         this.setState({ [name]: value })
+    }
+
+    handleCompleted = () => {
+        const newTodo = { completed: !this.props.todo.completed }
+        this.props.putCompleted(this.props.todo._id, newTodo)
     }
 
     handleSaveChanges = () => {
@@ -31,8 +36,14 @@ class Todo extends React.Component {
 
     render() {
         console.log(this.props.todo._id)
+        const completeStyle = this.props.todo.completed ? {textDecoration: "line-through", color: "#faafaa", transition: "0.3s"} : {textDecoration: "none", transition: "0.3s"}
         return (
             <div className="todo-item">
+                <input 
+                    type="checkbox" 
+                    checked={this.props.todo.completed}
+                    onChange={this.handleCompleted}
+                />
                 {this.state.editMode ? 
                     <>
                     <input 
@@ -47,7 +58,7 @@ class Todo extends React.Component {
                     </>
                     : 
                     <>
-                    <p>{this.props.todo.title}</p>
+                    <p style={completeStyle}>{this.props.todo.title}</p>
                     <button onClick={this.handleEdit}>Edit</button>
                     </>
                 }

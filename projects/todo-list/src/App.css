@@ -16,6 +16,9 @@ body {
 
 .todo-item p {
     font-size: 1.5em;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: aqua;
 }
 
 .todo-item button {

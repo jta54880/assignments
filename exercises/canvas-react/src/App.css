@@ -54,7 +54,7 @@ select {
 
 .navbar > h1 {
     margin-left: 10pt;
-    font-family: "Amatic SC";
+    font-family: "Amatic SC", 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 2.5em;
     color: #C8C8CD;
     border: solid 2pt#C8C8CD;
@@ -84,6 +84,10 @@ select {
 
 .hide-menu-links {
     display: none;
+}
+
+.menu-btn {
+    margin-right: 10pt;
 }
 
 .menu-btn, .close-menu-btn {
@@ -128,7 +132,7 @@ select {
     justify-content: center;
     align-items: center;
     font-size: 2em;
-    font-family: "Amatic SC";
+    font-family: "Amatic SC", 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background: rgba(255, 255, 255, 0.3);
 }
 
@@ -136,11 +140,11 @@ select {
     margin: 0;
 }
 
-.erased-container {
+.sketched-container {
     background: rgb(234,230,234);
     display: grid;
     grid-template-columns: 5vw auto 5vw;
-    grid-template-rows: 5vh auto 10vh auto 5vh;
+    grid-template-rows: 5vh auto 20vh auto 5vh;
     grid-template-areas: 
         ". . ."
         ". desc ."
@@ -148,6 +152,10 @@ select {
         ". pics ."
         ". . ."
     ;
+}
+
+.character-gif, .location-gif, .activity-gif {
+    height: 80vh;
 }
 
 .description {
@@ -187,6 +195,22 @@ select {
     transition: 0.3s;
 }
 
+.start-sketching-btn {
+    margin-top: 5pt;
+    font-size: 2em; 
+    text-decoration: none;
+    color: black;
+    background: #FD5B78;
+    padding: 10pt;
+    border-radius: 3pt;
+    transition: 0.3s;  
+}
+
+.start-sketching-btn:hover {
+    transition: 0.3s;
+    background: #50BFE6;
+}
+
 .canvas-container button {
     border: none;
     border-radius: 2pt;
@@ -205,13 +229,24 @@ select {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
+    text-align: center;
+}
+
+.status-bar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.topic-btns {
+    font-size: 1.5em;
 }
 
 .canvas-topic-container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -261,19 +296,23 @@ canvas {
     position: fixed;
     top: 0;
     left: 0;
-    width:100%;
+    width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
     transition: 0.5s;
 }
 
 .modal-main {
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5pt;
     position:fixed;
     background: white;
     width: 50%;
     height: 100vh;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%,-50%);
     transition: 0.5s;
     font-size: 2em;
@@ -304,6 +343,10 @@ canvas {
     
     .character, .location, .activity, .form  * {
         font-size: 1em;
+    }
+
+    .character-gif, .location-gif, .activity-gif {
+        height: 30vh;
     }
 
     .modal-main {

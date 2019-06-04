@@ -1,5 +1,6 @@
 import React from "react"
 import { withData } from "./DataProvider.js"
+import { Link } from "react-router-dom"
 
 class Canvas extends React.Component {
     constructor() {
@@ -113,15 +114,34 @@ class Canvas extends React.Component {
 
     render() {
         const modalShowClass = this.props.showModal ? "display-block" : "display-none"
+        const topicsShowClass = this.props.showTopics ? "topics" : "display-none"
+        const styleDivOne = this.state.finishCharacter ? 
+            {background: "#66FF66", border: "solid 1pt black", width: "50pt", height: "20pt", transition: "0.4s"} : {background: "none", border: "solid 1pt black", width: "50pt", height: "20pt", transition: "0.4s"}
+        const styleDivTwo = this.state.finishLocation ? 
+            {background: "#66FF66", border: "solid 1pt black", width: "50pt", height: "20pt", margin: "0 3pt", transition: "0.4s"} : {background: "none", border: "solid 1pt black", width: "50pt", height: "20pt", margin: "0 3pt", transition: "0.4s"}
+        const styleDivThree = this.state.finishActivity ? 
+            {background: "#66FF66", border: "solid 1pt black", width: "50pt", height: "20pt", transition: "0.4s"} : {background: "none", border: "solid 1pt black", width: "50pt", height: "20pt", transition: "0.4s"}
         return (
             <div className="body canvas-container">
                 <div className="canvas-header">
                     <h1>Canvas</h1>
                     {this.props.character !== "" && 
-                        <div className="topics">
+                        <>
+                        {!this.props.showTopics ? <button className="topic-btns" onClick={this.props.openTopics}>Show My Topics</button> : <button className="topic-btns" onClick={this.props.closeTopics}>Close Topics</button>}
+                        <p>Sketch Status</p>
+                        <div className="status-bar">
+                            <div style={styleDivOne}></div>
+                            <div style={styleDivTwo}></div>
+                            <div style={styleDivThree}></div>
+                        </div>
+                        </>
+                    }
+                    {this.props.character !== "" &&
+                        <div className={topicsShowClass}>
+                            {/* <button className="topic-btns" onClick={this.props.closeTopics}>Close Topics</button> */}
                             <div className="canvas-topic-container">
                                 {this.state.finishCharacter ? 
-                                    <h3 style={{textDecoration: "line-through", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Character- {this.props.character}
+                                    <h3 style={{textDecoration: "line-through", textDecorationStyle: "wavy", textDecorationColor: "lightblue", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Character- {this.props.character}
                                     </h3> 
                                     : 
                                     <h3 style={{transition: "0.45s"}} className="topic-header">Character- {this.props.character}</h3>
@@ -131,7 +151,7 @@ class Canvas extends React.Component {
                             
                             <div className="canvas-topic-container">
                                 {this.state.finishLocation ? 
-                                    <h3 style={{textDecoration: "line-through", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Location- {this.props.place}
+                                    <h3 style={{textDecoration: "line-through", textDecorationStyle: "wavy", textDecorationColor: "lightblue", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Location- {this.props.place}
                                     </h3> 
                                     : 
                                     <h3 style={{transition: "0.45s"}} className="topic-header">Location- {this.props.place}</h3>
@@ -141,7 +161,7 @@ class Canvas extends React.Component {
                             
                             <div className="canvas-topic-container">
                                 {this.state.finishActivity ? 
-                                    <h3 style={{textDecoration: "line-through", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Activity- {this.props.activity}
+                                    <h3 style={{textDecoration: "line-through", textDecorationStyle: "wavy", textDecorationColor: "lightblue", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Activity- {this.props.activity}
                                     </h3> 
                                     : 
                                     <h3 style={{transition: "0.45s"}} className="topic-header">Activity- {this.props.activity}</h3>
@@ -157,9 +177,9 @@ class Canvas extends React.Component {
                     ref="canvas"
                     width={window.innerWidth}
                     height={window.innerHeight}
-                    onMouseDown={(e)=>this.brushDown(e)} 
-                    onMouseMove={(e)=>this.drawing(e)}
-                    onMouseUp={(e)=>this.brushUp(e)}>
+                    onMouseDown={(e) => this.brushDown(e)} 
+                    onMouseMove={(e) => this.drawing(e)}
+                    onMouseUp={(e) => this.brushUp(e)}>
                 </canvas>
                 <div className="tools-btns">
                     <button
@@ -176,11 +196,11 @@ class Canvas extends React.Component {
                     <button 
                         className="tool-btn"
                         onClick={this.brushSizeUp} 
-                    >+ Increase Brush Size +</button>
+                    >+ Brush Size + ({this.state.lineWidth}pt)</button>
                     <button 
                         className="tool-btn"
                         onClick={this.brushSizeDown} 
-                    >- Decrease Brush Size -</button>
+                    >- Brush Size - ({this.state.lineWidth}pt)</button>
                     <button 
                         className="tool-btn"
                         onClick={this.clearCanvas} 
@@ -230,12 +250,12 @@ class Canvas extends React.Component {
                         <button className="modal-btn" onClick={this.props.closeModal}>X</button>
                         {this.props.character !== "" ? 
                             <div style={{width: "100%", height: "100%"}}>
-                                <div style={{backgroundImage: `url(${this.props.characterGif.url})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", height: "30%", width: "100%"}}></div>
-                                <div style={{backgroundImage: `url(${this.props.locationGif.url})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", height: "30%", width: "100%"}}></div>
-                                <div style={{backgroundImage: `url(${this.props.activityGif.url})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", height: "30%", width: "100%"}}></div>
+                                <div style={{backgroundImage: `url(${this.props.characterGif.url})`, backgroundPosition: "center", backgroundSize: "contain", marginBottom: "5pt", backgroundRepeat: "no-repeat", height: "40vh", width: "100%"}}></div>
+                                <div style={{backgroundImage: `url(${this.props.locationGif.url})`, backgroundPosition: "center", backgroundSize: "contain", marginBottom: "5pt", backgroundRepeat: "no-repeat", height: "40vh", width: "100%"}}></div>
+                                <div style={{backgroundImage: `url(${this.props.activityGif.url})`, backgroundPosition: "center", backgroundSize: "contain", marginBottom: "5pt", backgroundRepeat: "no-repeat", height: "40vh", width: "100%"}}></div>
                             </div>
                             :
-                            <p>Submit Character Form to Get Inspired (go to 'Play Sketched' page from the Menu)</p>
+                            <p style={{margin: "0 10pt"}}>Submit Character Form to Get Inspired (click '<Link to="/play_sketched" onClick={this.props.closeModal}>Play Sketched</Link>' to get random topics or go to the Menu for more options)</p>
                         }
                     </section>
                 </div>

@@ -3,18 +3,18 @@ const topics = {
         animals: 
             ["grizzly bear", "elephant", "lion", "tiger", "giraffe", "panda", "hippo", "gorilla", "penguin", "rhinoceros"],
         videoGameCharacters: 
-            ["mario", "luigi", "pacman", "princess zelda", "bowser", "sonic", "princess peach", "donkey kong", "little mac", "princess daisy", "link zelda"],
+            ["nintendo mario", "nintendo luigi", "pacman", "nintendo princess zelda", "nintendo bowser", "sonic hedgehog", "nintendo princess peach", "nintendo donkey kong", "nintendo little mac", "nintendo toad", "nintendo link zelda"],
         marvelCharacters: 
-            ["thanos", "loki", "wolverine", "captain america", "drax", "hulk", "thor", "gamora", "iron man", "captain marvel"],
+            ["marvel thanos", "marvel loki", "marvel wolverine", "marvel captain america", "marvel drax", "marvel hulk", "marvel thor", "marvel gamora", "marvel iron man", "marvel captain marvel"],
         dcCharacters:
-            ["aquaman", "batman", "superman", "the joker", "wonder woman", "lex luthor", "catwoman", "darkseid", "beast boy", "green lantern"],
+            ["dc aquaman", "dc batman", "dc superman", "dc the joker", "dc wonder woman", "dc lex luthor", "dc catwoman", "dc darkseid", "dc beast boy", "dc green lantern"],
         disneyCharacters:
-            ["princess jasmine", "belle", "mickey mouse", "mufasa", "stitch", "elsa", "wreck it ralph", "lilo", "winnie the pooh", "hercules"],
+            ["disney princess jasmine", "disney belle", "disney mickey mouse", "disney mufasa", "disney stitch", "disney elsa", "disney wreck it ralph", "disney lilo", "disney winnie the pooh", "disney hercules"],
     },
     locations: 
-        ["beach", "office", "park", "city", "mountains", "ocean", "school", "restaurant", "airplane", "car"],
+        ["beach", "office", "park", "swimming pool", "city", "mountains", "ocean", "school", "restaurant", "airplane", "car"],
     activities: 
-        ["eating a meal", "american football", "basketball", "boxing", "studying", "singing", "dancing", "helping", "sword fight", "sailing"]
+        ["eating a meal", "american football", "camping", "basketball", "boxing", "studying", "singing", "dancing", "helping", "sword fight", "sailing"]
 }
 
 export default topics

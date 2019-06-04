@@ -3,7 +3,15 @@ import { withData } from "./DataProvider"
 
 const DeleteComplete = props => {
     return (
-        <button onClick={props.deleteAllComplete}>Delete All Completed</button>
+        <>
+        {props.todos.filter(todo => todo.completed).length > 0 &&
+            <button 
+                className="delete-completed-btn" 
+                onClick={props.deleteAllComplete}
+            >Delete All Completed
+            </button>
+        }
+        </>
     )
 }
 

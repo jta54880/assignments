@@ -1,7 +1,7 @@
 import React from "react"
 import Navbar from "./Navbar.js"
 import Home from "./Home.js"
-import PlayErased from "./PlaySketched.js"
+import PlaySketched from "./PlaySketched.js"
 import Canvas from "./Canvas.js"
 import Footer from "./Footer.js"
 import { Switch, Route } from "react-router-dom"
@@ -13,7 +13,7 @@ const App = () => {
             <Navbar />
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/play_erased" component={PlayErased} />
+                <Route path="/play_sketched" component={PlaySketched} />
                 <Route path="/canvas" component={Canvas} />
             </Switch>
             <Footer />

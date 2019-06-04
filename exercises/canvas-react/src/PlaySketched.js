@@ -29,7 +29,7 @@ class PlaySketched extends React.Component {
 
     render() {
         return (
-            <div className="body erased-container">
+            <div className="body sketched-container">
                 <p className="description">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat alias quibusdam ullam accusantium impedit, facere excepturi possimus, reiciendis eveniet error magnam laboriosam eos minima! Nesciunt necessitatibus tenetur, placeat hic reprehenderit quibusdam dolor impedit aliquid quasi saepe eaque ipsam voluptatum similique minima vel tempora. Asperiores dolorem voluptatum ratione architecto nobis pariatur?
                 </p>
@@ -52,8 +52,8 @@ class PlaySketched extends React.Component {
                             style={{
                                 backgroundImage: `url(${this.props.characterGif.url})`, 
                                 backgroundPosition: "center", 
-                                backgroundSize: "cover",
-                                height: "80vh",
+                                backgroundSize: "contain",
+                                backgroundRepeat: "no-repeat",
                                 width: "80vw"
                             }} 
                             className="character-gif">
@@ -63,8 +63,8 @@ class PlaySketched extends React.Component {
                         <div 
                             style={{
                                 backgroundImage: `url(${this.props.locationGif.url})`, backgroundPosition: "center", 
-                                backgroundSize: "cover",
-                                height: "80vh",
+                                backgroundSize: "contain",
+                                backgroundRepeat: "no-repeat",
                                 width: "80vw"
                             }} 
                             className="location-gif">
@@ -73,13 +73,13 @@ class PlaySketched extends React.Component {
                         <div 
                             style={{
                                 backgroundImage: `url(${this.props.activityGif.url})`, backgroundPosition: "center", 
-                                backgroundSize: "cover",
-                                height: "80vh",
+                                backgroundSize: "contain",
+                                backgroundRepeat: "no-repeat",
                                 width: "80vw"
                             }} 
                             className="activity-gif">
                         </div>
-                        <Link to="/canvas">Start Sketching</Link>
+                        <Link className="start-sketching-btn" to="/canvas">Start Sketching</Link>
                         </>
                     }
                 </div>

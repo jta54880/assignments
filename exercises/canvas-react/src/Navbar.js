@@ -13,7 +13,7 @@ const Navbar = (props) => {
             <div className={`menu-links ${menuLinksClass}`}>
                 <button className="close-menu-btn" onClick={props.closeMenu}>X</button>
                 <Link to="/" className="nav-item" onClick={props.closeMenu}>Home</Link>
-                <Link to="/play_erased" className="nav-item" onClick={props.closeMenu}>Play Sketched</Link>
+                <Link to="/play_sketched" className="nav-item" onClick={props.closeMenu}>Play Sketched</Link>
                 <Link to="/canvas" className="nav-item" onClick={props.closeMenu}>Start Sketching</Link>
             </div>
         </div>

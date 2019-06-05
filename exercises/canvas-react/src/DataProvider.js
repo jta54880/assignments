@@ -15,7 +15,8 @@ class DataProvider extends React.Component {
             activityGif: {url: "", title: ""},
             showModal: false,
             showMenuLinks: false,
-            showTopics: false
+            showTopics: false,
+            savedSketches: []
         }
     }
 
@@ -106,6 +107,20 @@ class DataProvider extends React.Component {
         this.setState({ showTopics: false })
     }
 
+    saveSketch = sketch => {
+        this.setState(prevState => {
+            return { 
+                savedSketches: [...prevState.savedSketches, sketch], 
+                character: "",
+                place: "",
+                activity: "",
+                characterGif: {url: "", title: ""},
+                locationGif: {url: "", title: ""},
+                activityGif: {url: "", title: ""}
+            }
+        })
+    }
+
     render() {
         return (
             <Provider value={{
@@ -118,7 +133,8 @@ class DataProvider extends React.Component {
                 showMenu: this.showMenu,
                 closeMenu: this.closeMenu,
                 openTopics: this.openTopics,
-                closeTopics: this.closeTopics
+                closeTopics: this.closeTopics,
+                saveSketch: this.saveSketch
             }}>
                 {this.props.children}
             </Provider>

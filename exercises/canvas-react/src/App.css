@@ -237,6 +237,7 @@ select {
 .status-bar {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .topic-btns {
@@ -330,6 +331,22 @@ canvas {
 .display-none {
     display: none;
     transition: 0.5s;
+}
+
+.saved-container > h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sketches-container {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+}
+
+.sketch {
+    flex: 1 1 50%;
 }
 
 @media (max-width: 600px) {

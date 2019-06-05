@@ -52,17 +52,17 @@ class Canvas extends React.Component {
                 this.ctx.strokeStyle = '#ffffff'
             }
 
-            this.ctx.moveTo(this.state.brushXY[0], this.state.brushXY[1]) //move to old position
-            this.ctx.lineTo(offsetX, offsetY) //draw to new position
+            this.ctx.moveTo(this.state.brushXY[0], this.state.brushXY[1]) 
+            this.ctx.lineTo(offsetX, offsetY) 
             this.ctx.stroke()
             
-            this.setState({ //save new position 
+            this.setState({  
                 brushXY: [offsetX, offsetY]
             })
         }
     }
 
-    brushDown = (e) => { //mouse is down on the canvas
+    brushDown = (e) => { 
         const { offsetX, offsetY } = e.nativeEvent
         this.setState({
             brush: "down",
@@ -70,7 +70,7 @@ class Canvas extends React.Component {
         })
     }
 
-    brushUp = () => { //mouse is up on the canvas
+    brushUp = () => { 
         this.setState({
             brush: "up"
         })
@@ -93,7 +93,7 @@ class Canvas extends React.Component {
         })
     }
 
-    clearCanvas = () => { //clears it to all white, resets state to original
+    clearCanvas = () => { 
         this.setState({
             mode: "draw",
             brush : "up",
@@ -112,7 +112,15 @@ class Canvas extends React.Component {
         this.setState(prevState => ({[name]: !prevState[name]}))
     }
 
+    saveCanvas = sketch => {
+        this.props.saveSketch(sketch)
+        this.clearCanvas()
+        this.setState({ finishCharacter: false, finishLocation: false, finishActivity: false })
+        this.props.closeTopics()
+    }
+
     render() {
+        console.log(this.props.savedSketches)
         const modalShowClass = this.props.showModal ? "display-block" : "display-none"
         const topicsShowClass = this.props.showTopics ? "topics" : "display-none"
         const styleDivOne = this.state.finishCharacter ? 
@@ -121,6 +129,7 @@ class Canvas extends React.Component {
             {background: "#66FF66", border: "solid 1pt black", width: "50pt", height: "20pt", margin: "0 3pt", transition: "0.4s"} : {background: "none", border: "solid 1pt black", width: "50pt", height: "20pt", margin: "0 3pt", transition: "0.4s"}
         const styleDivThree = this.state.finishActivity ? 
             {background: "#66FF66", border: "solid 1pt black", width: "50pt", height: "20pt", transition: "0.4s"} : {background: "none", border: "solid 1pt black", width: "50pt", height: "20pt", transition: "0.4s"}
+        const canvas = this.refs.canvas
         return (
             <div className="body canvas-container">
                 <div className="canvas-header">
@@ -133,12 +142,18 @@ class Canvas extends React.Component {
                             <div style={styleDivOne}></div>
                             <div style={styleDivTwo}></div>
                             <div style={styleDivThree}></div>
+                            {this.state.finishCharacter && this.state.finishLocation && this.state.finishActivity && 
+                                <button 
+                                    className="save-btn" 
+                                    style={{fontSize: "1.5em", marginLeft: "5pt"}}
+                                    onClick={() => this.saveCanvas(canvas.toDataURL())}
+                                >Save Image
+                                </button>}
                         </div>
                         </>
                     }
                     {this.props.character !== "" &&
                         <div className={topicsShowClass}>
-                            {/* <button className="topic-btns" onClick={this.props.closeTopics}>Close Topics</button> */}
                             <div className="canvas-topic-container">
                                 {this.state.finishCharacter ? 
                                     <h3 style={{textDecoration: "line-through", textDecorationStyle: "wavy", textDecorationColor: "lightblue", color: "#FAAFAA", transition: "0.45s"}} className="topic-header">Character- {this.props.character}
@@ -146,7 +161,7 @@ class Canvas extends React.Component {
                                     : 
                                     <h3 style={{transition: "0.45s"}} className="topic-header">Character- {this.props.character}</h3>
                                 }
-                                <input type="checkbox" name="finishCharacter" onChange={this.handleChange}/>
+                                <input type="checkbox" name="finishCharacter" checked={this.state.finishCharacter} onChange={this.handleChange}/>
                             </div>
                             
                             <div className="canvas-topic-container">
@@ -156,7 +171,7 @@ class Canvas extends React.Component {
                                     : 
                                     <h3 style={{transition: "0.45s"}} className="topic-header">Location- {this.props.place}</h3>
                                 }
-                                <input type="checkbox" name="finishLocation" onChange={this.handleChange}/>
+                                <input type="checkbox" name="finishLocation" checked={this.state.finishLocation} onChange={this.handleChange}/>
                             </div>
                             
                             <div className="canvas-topic-container">
@@ -166,7 +181,7 @@ class Canvas extends React.Component {
                                     : 
                                     <h3 style={{transition: "0.45s"}} className="topic-header">Activity- {this.props.activity}</h3>
                                 }
-                                <input type="checkbox" name="finishActivity" onChange={this.handleChange}/>
+                                <input type="checkbox" name="finishActivity" checked={this.state.finishActivity} onChange={this.handleChange}/>
                             </div>
                             
                         </div>
@@ -174,6 +189,7 @@ class Canvas extends React.Component {
                     <button className="modal-btn" onClick={this.props.openModal}>Get Inspired</button>
                 </div>
                 <canvas 
+                    id="canvas"
                     ref="canvas"
                     width={window.innerWidth}
                     height={window.innerHeight}
@@ -259,7 +275,6 @@ class Canvas extends React.Component {
                         }
                     </section>
                 </div>
-
             </div>
         )
     }

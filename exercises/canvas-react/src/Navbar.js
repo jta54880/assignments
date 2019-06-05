@@ -15,6 +15,7 @@ const Navbar = (props) => {
                 <Link to="/" className="nav-item" onClick={props.closeMenu}>Home</Link>
                 <Link to="/play_sketched" className="nav-item" onClick={props.closeMenu}>Play Sketched</Link>
                 <Link to="/canvas" className="nav-item" onClick={props.closeMenu}>Start Sketching</Link>
+                <Link to="/saved_sketches" className="nav-item" onClick={props.closeMenu}>Saved Sketches</Link>
             </div>
         </div>
     )

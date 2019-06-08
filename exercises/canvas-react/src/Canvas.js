@@ -98,8 +98,13 @@ class Canvas extends React.Component {
             mode: "draw",
             brush : "up",
             lineWidth : 10,
-            brushColor : "black"
+            brushColor : "black",
+            finishCharacter: false,
+            finishLocation: false,
+            finishActivity: false
         })
+
+        this.props.closeTopics()
 
         this.ctx = this.refs.canvas.getContext('2d')
         this.ctx.fillStyle= "white"

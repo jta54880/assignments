@@ -1,5 +1,6 @@
 import React from "react"
 import Fade from "react-reveal/Fade"
+import Pulse from "react-reveal/Pulse"
 import Navbar from "./Navbar"
 import { Switch, Route } from "react-router-dom"
 import Home from "./Home"
@@ -28,7 +29,9 @@ const App = (props) => {
                 <Route exact path="/" component={Home} />
                 <Route path="/projects" component={Projects} />
             </Switch>
-            <Footer />
+            <Pulse>
+                <Footer />
+            </Pulse>
         </div>
     )
 }

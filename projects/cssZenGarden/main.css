@@ -92,11 +92,18 @@ body {
 .header {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 20% auto 20%;
+    grid-template-rows: 5% 20% auto 20%;
     grid-template-areas: 
+        "tb tb"
         ". v"
         "t v"
         ". v";
+}
+
+.top-bar {
+    grid-area: tb;
+    background: rgba(16, 42, 43, 0.8);
+    border-bottom: solid 3pt rgba(255, 255, 255, 0.05);
 }
 
 .header-main {
@@ -555,8 +562,9 @@ body {
 
     .header {
         grid-template-columns: 0.5fr 3fr 0.5fr;
-        grid-template-rows: 70% 30%;
+        grid-template-rows: 5% 70% 25%;
         grid-template-areas: 
+            "tb tb tb"
             ". t ."
             "v v v";
     }

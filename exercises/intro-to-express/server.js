@@ -31,7 +31,8 @@ app.delete("/destination/:destinationID", (request, resopnse) => {
     // console.log(request.params)
     // const results = data.filter(destination => destination._id !== request.params.destinationID)
     // response.send(results)
-    data.forEach((destination, i) => request.params.destinationID = destination._id && data.splice(i, 1))
+    data.forEach((destination, i) => request.params.destinationID === destination._id && data.splice(i, 1))
+    // why not comparison === ??
 
     response.send({message: "deleted", data})
 })
@@ -39,7 +40,7 @@ app.delete("/destination/:destinationID", (request, resopnse) => {
 app.put("/destination/:destinationID", (request, response) => {
     console.log(request.body)
     const updatedDestination = request.body
-    data.forEact(destination => {
+    data.forEach(destination => {
         if (request.params.destinationID === destination._id) {
             return Object.assign(destination, updatedDestination)
         }

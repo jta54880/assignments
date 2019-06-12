@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import uuid from "uuid/v4"
+// import uuid from "uuid/v4"
 const { Consumer, Provider } = React.createContext()
 
 class GlobalProvider extends React.Component {
@@ -28,13 +28,11 @@ class GlobalProvider extends React.Component {
 
     postBounty = bounty => {
         axios.post("/bounty", bounty).then(response => {
-            console.log(response.data)
             this.setState(prevState => ({ bountyTargets: [...prevState.bountyTargets, response.data]}))
         }) 
     }
 
     deleteBounty = id => {
-        console.log(id)
         axios.delete(`/bounty/${id}`).then(response => {
             this.setState(prevState => {
                 const updatedBountyList = prevState.bountyTargets.filter(target => 
@@ -42,6 +40,18 @@ class GlobalProvider extends React.Component {
                 )
                 return { bountyTargets: updatedBountyList}
             }) 
+        })
+    }
+    //need to add a filter to release pre-edited object...in put
+    putBounty = (id, obj) => {
+        const foundObject = this.state.bountyTargets.find(target => id === target._id)
+        axios.put(`/bounty/${id}`, obj).then(response => {
+            this.setState(prevState => {
+                console.log(prevState.bountyTargets)
+                prevState.bountyTargets.splice(prevState.bountyTargets.indexOf(foundObject), 1, response.data)
+                console.log(prevState.bountyTargets)
+                return { bountyTargets: prevState.bountyTargets}
+            })
         })
     }
     
@@ -62,7 +72,6 @@ class GlobalProvider extends React.Component {
             living: this.state.living,
             bounty: this.state.bounty,
             type: this.state.type,
-            _id: uuid()
         }
 
         // this.setState(prevState => ({ bountyTargets: [...prevState.bountyTargets, newBounty] }))
@@ -76,8 +85,6 @@ class GlobalProvider extends React.Component {
             bounty: "",
             type: ""
         })
-
-        // this.getBountyList()
     }
 
     render() {
@@ -86,7 +93,8 @@ class GlobalProvider extends React.Component {
                 ...this.state,
                 handleChange: this.handleChange,
                 handleSubmit: this.handleSubmit,
-                deleteBounty: this.deleteBounty
+                deleteBounty: this.deleteBounty,
+                putBounty: this.putBounty
             }}>
                 {this.props.children}
             </Provider>

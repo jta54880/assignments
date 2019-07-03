@@ -44,6 +44,13 @@ class TodoProvider extends Component {
         })
     }
 
+    putTodo = (id, updatedTodo) => {
+        axios.put(`https://api.vschool.io/jakeafuvai/todo/${id}`, updatedTodo).then(response => {
+            const filteredTodos = this.state.todos.filter(todo=>todo._id !== id)
+            this.setState({todos: [...filteredTodos, response.data]})
+        })
+    }
+
     // this.setState(prevState => {
     //     const updatedTodos = prevState.todos.map(todo => {
     //         return todo._id === id ? todo = changedTodo : todo
@@ -60,7 +67,8 @@ class TodoProvider extends Component {
                 getTodos: this.getTodos,
                 deleteTodos: this.deleteTodos,
                 postTodo: this.postTodo,
-                getPexel: this.getPexel
+                getPexel: this.getPexel,
+                putTodo: this.putTodo
             }} >
                 {/* In this case App is the child being referenced --> See index.js */}
                 {this.props.children}

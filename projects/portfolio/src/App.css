@@ -4,6 +4,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+}
+a {
+    color: rgb(10, 63, 45);
+}
+a:hover {
+    cursor: pointer;
 }
 .app-container {
     display: grid;

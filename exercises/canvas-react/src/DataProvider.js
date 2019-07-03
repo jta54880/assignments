@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import topics from "./topics.js"
+require("dotenv").config()
 const { Consumer, Provider } = React.createContext()
 
 class DataProvider extends React.Component {
@@ -56,8 +57,8 @@ class DataProvider extends React.Component {
     }
 
     getCharacterGif = () => {
-        console.log(this.state.character)
-        axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.character}&limit=1&rating=g&api_key=2BAuMS8Ig47TgMnBJXotOjDbQtjy6bYa`).then(response => {
+        // console.log(process.env.REACT_APP_GIPHY_API_KEY)
+        axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.character}&limit=1&rating=g&api_key=${process.env.REACT_APP_GIPHY_API_KEY}`).then(response => {
             console.log(response.data.data[0].images.original.url)
             const { url } = response.data.data[0].images.original 
             const { title } = response.data.data[0]
@@ -67,7 +68,7 @@ class DataProvider extends React.Component {
 
     getLocationGif = () => {
         console.log(this.state.place)
-        axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.place}&limit=1&rating=g&api_key=2BAuMS8Ig47TgMnBJXotOjDbQtjy6bYa`).then(response => {
+        axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.place}&limit=1&rating=g&api_key=${process.env.REACT_APP_GIPHY_API_KEY}`).then(response => {
             const { url } = response.data.data[0].images.original 
             const { title } = response.data.data[0] 
             this.setState({ locationGif: { url, title }})
@@ -76,7 +77,7 @@ class DataProvider extends React.Component {
 
     getActivityGif = () => {
         console.log(this.state.activity)
-        axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.activity}&limit=1&rating=g&api_key=2BAuMS8Ig47TgMnBJXotOjDbQtjy6bYa`).then(response => {
+        axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.activity}&limit=1&rating=g&api_key=${process.env.REACT_APP_GIPHY_API_KEY}`).then(response => {
             const { url } = response.data.data[0].images.original 
             const { title } = response.data.data[0] 
             this.setState({ activityGif: { url, title }})

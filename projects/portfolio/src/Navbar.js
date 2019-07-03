@@ -23,6 +23,8 @@ const Navbar = (props) => {
                     />
                     <Link className="menu-link" to="/">Home</Link>
                     <Link className="menu-link" to="/projects">Projects</Link>
+                    {/* <Link className="menu-link" to="/resume">Resume</Link> */}
+                    <a className="menu-link" href="https://docs.google.com/document/d/1qNcFo25pgyZ4r3pd8vxUgaVUXLzPAJ9L5vG0DSJ2Mxc/edit?usp=sharing">Resume</a>
                 </div>
             </Fade>
         </div>

@@ -1,15 +1,24 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Fade from "react-reveal/Fade"
 
 const Projects = () => {
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
     return (
         <div className="body">
             <Fade duration={3000}>
                 <div className="projects-container">
                     <h1>projects...</h1>
-                    <a href="https://github.com/jta54880/final-project"><h3>Full Stack Coach App</h3></a>
-                    <a href="https://github.com/jta54880/assignments/tree/master/projects/periodic-table"><h3>React Sketched App</h3></a>
-                    <a href="https://github.com/jta54880/assignments/tree/master/exercises/canvas-react"><h3>React Periodic Table App</h3></a>
+                    <a href="https://github.com/jta54880/final-project"><h3>TIE: Full Stack Coach App</h3>
+                    <div className="tie-img"></div>
+                    </a>
+                    <a href="http://sketched.surge.sh"><h3>Sketched: React SPA Web App</h3>
+                    <div className="sketched-img"></div>
+                    </a>
+                    <a href="http://periodictable.surge.sh"><h3>Periodic Table React Web App</h3>
+                    <div className="periodic-table-img"></div>
+                    </a>
                 </div>
             </Fade>
         </div>

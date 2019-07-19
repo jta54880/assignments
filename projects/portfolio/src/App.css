@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: "Permanent Marker", Arial, Helvetica, sans-serif;
 }
 a {
     color: rgb(10, 63, 45);
@@ -63,6 +64,9 @@ h1 {
     position: absolute;
     top: -4pt;
 }
+.close-btn:hover, a:hover {
+    cursor: pointer
+}
 .menu-link {
     text-decoration: none;
     margin: 50pt;
@@ -73,7 +77,15 @@ h1 {
 }
 .home {
     display: grid;
-    grid-template-rows: repeat(4, 100vh);
+    grid-template-rows: repeat(4, 100vh);  
+}
+.snap-container {
+    scroll-snap-type: mandatory;
+    scroll-snap-type-y: mandatory;
+    overscroll-behavior-y: scroll;
+}
+.snap-container > div {
+    scroll-snap-align: start;
 }
 .top-background {
     grid-row: 1;
@@ -289,6 +301,63 @@ h1 {
     justify-content: space-evenly;
     align-items: center;
 }
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+    text-align: center;
+    background: #333;
+}
+.projects-container > h1 {
+    color: #f7f7f7;
+}
+.projects-container h3 {
+    margin-top: 30pt;
+    color: #f7f7f7;
+}
+.tie-img {
+    background-image: url(./portfolio-svg/tie.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 60vw;
+    max-width: 500pt;
+    height: 30vh;
+    transition: 0.3s;
+    border-radius: 5pt;
+    opacity: 0.45;
+}
+.sketched-img {
+    background-image: url(./portfolio-svg/sketched.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 60vw;
+    max-width: 500pt;
+    height: 30vh;
+    transition: 0.3s;
+    border-radius: 5pt;
+    opacity: 0.45;
+}
+.periodic-table-img {
+    background-image: url(./portfolio-svg/periodicTable.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 60vw;
+    max-width: 500pt;
+    height: 30vh;
+    transition: 0.3s;
+    border-radius: 5pt;
+    opacity: 0.45;
+    margin-bottom: 20pt;
+}
+.tie-img:hover, .sketched-img:hover, .periodic-table-img:hover {
+    transition: 0.3s;
+    opacity: 1;
+}
 .footer-container {
     height: 100%;
     grid-row: 3;
@@ -297,7 +366,18 @@ h1 {
     justify-content: space-evenly;
     align-items: center;
 }
+#git, #anchor, #linkedin { transition: 0.3s; }
+#git:hover, #anchor:hover, #linkedin:hover { transition: 0.3s; }
+#git:hover { color: #faafaa; }
+#anchor:hover { color: #ebeb85; }
+#linkedin:hover { color: #9b9999; }
 
-@media (max-width: 1130px) {
-
+@media (max-width: 620px) {
+    .display-menu {
+        width: 100vw;
+        left: 50%;
+    }  
+    .projects-container h3 {
+        font-size: 0.75em;
+    } 
 }

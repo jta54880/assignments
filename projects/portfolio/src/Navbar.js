@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons"
 import { withGlobalState } from "./DataProvider"
 
-const Navbar = (props) => {
+const Navbar = props => {
     const toggleMenu = props.showMenu ? "display-menu" : "no-display"
     return (
         <div className="navbar-container">
             <Fade delay={1000} duration={3000}>
-                <p className="logo">jake</p>
+                <div className="logo">Jake Afuvai</div>
             </Fade>
             <Fade right when={props.showMenu}>
                 <div className={toggleMenu} style={{height: document.body.clientHeight}}>
@@ -21,10 +21,11 @@ const Navbar = (props) => {
                         color="white" 
                         onClick={props.closeMenu}    
                     />
-                    <Link className="menu-link" to="/">Home</Link>
-                    <Link className="menu-link" to="/projects">Projects</Link>
+                    <Link className="menu-link" to="/" onClick={props.closeMenu}>Home</Link>
+                    <Link className="menu-link" to="/projects" onClick={props.closeMenu}>Projects</Link>
                     {/* <Link className="menu-link" to="/resume">Resume</Link> */}
-                    <a className="menu-link" href="https://docs.google.com/document/d/1qNcFo25pgyZ4r3pd8vxUgaVUXLzPAJ9L5vG0DSJ2Mxc/edit?usp=sharing">Resume</a>
+                    {/* <a className="menu-link" href="https://docs.google.com/document/d/1qNcFo25pgyZ4r3pd8vxUgaVUXLzPAJ9L5vG0DSJ2Mxc/edit?usp=sharing">Resume</a> */}
+                    <Link className="menu-link" to="/resume" onClick={props.closeMenu}>Resume</Link>
                 </div>
             </Fade>
         </div>

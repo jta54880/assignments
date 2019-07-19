@@ -358,6 +358,135 @@ h1 {
     transition: 0.3s;
     opacity: 1;
 }
+
+.resume-container * {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+.resume-container {
+    display: grid;
+    grid-template-columns: 20vw 10vw auto 10vw;
+    grid-template-rows: 40vh repeat(4, auto);
+    grid-template-areas:
+        "top top top top"
+        "side . sum ."
+        "side . proj ."
+        "side . edu ."
+        "side . job .";
+    justify-content: center;
+    align-items: center;
+}
+.resume-top {
+    grid-area: top;
+    text-align: center;
+    background: lightgreen;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(104, 93, 93);
+}
+.resume-top > h1 {
+    font-size: 4em;
+}
+.resume-top > h4 {
+    padding: 10pt 0;
+}
+.resume-top > h4 > span {
+    font-size: 1.6em;
+    color: rgb(153, 151, 151);
+}
+.sidebar {
+    grid-area: side;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    text-align: center;
+    background: rgb(87, 85, 85);
+    height: 100%;
+}
+.contact-head, .skills-head {
+    padding: 25pt 0;
+    width: 100%;
+    background: rgb(218, 216, 216);
+    margin-bottom: 5pt;
+}
+.contact, .skill {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.contact h3, .skill h4 {
+    font-size: .75em;
+    margin: 8pt 0;
+}
+.contact *, .skill * {
+    color: #f7f7f7;
+}
+.resume-summary {
+    grid-area: sum;
+}
+.resume-summary > p {
+    line-height: 2;
+    font-size: 1.25em;
+}
+.section-top {
+    display: grid;
+    grid-template-columns: 2fr 2fr 4fr;
+    grid-template-rows: auto;
+    margin: 25pt 0;
+}
+.section-top > h2 {
+    justify-self: self-start;
+    align-self: flex-end
+}
+.resume-projects {
+    grid-area: proj;
+}
+.project, .edu {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 8pt;
+    margin: 12pt 0;
+}
+.project > a, .edu > a {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: center;
+    transition: 0.3s;
+    height: 100%;
+    margin-top: 5pt;
+    border-radius: 5pt;
+    color: black;
+}
+.project > a > h3, .edu > a > h3 {
+    margin-left: 5pt;
+}
+.project > a:hover, .edu > a:hover {
+    transition: 0.3s;
+    background: grey;
+    color: #f7f7f7;
+}
+.project > p, .job > p {
+    line-height: 1.75;
+}
+.project > p > span {
+    font-weight: bold;
+}
+.resume-education {
+    grid-area: edu;
+}
+.job-history {
+    grid-area: job;
+    margin-bottom: 25pt;
+}
+.job * {
+    color: black;
+}
+
+
 .footer-container {
     height: 100%;
     grid-row: 3;
@@ -371,6 +500,55 @@ h1 {
 #git:hover { color: #faafaa; }
 #anchor:hover { color: #ebeb85; }
 #linkedin:hover { color: #9b9999; }
+
+@media (max-width: 810px) {
+    .resume-container {
+        grid-template-columns: 20vw 10vw auto 10vw;
+        grid-template-rows: 40vh repeat(5, auto);
+        grid-template-areas:
+            "top top top top"
+            ". sum sum ."
+            ". proj proj ."
+            ". edu edu ."
+            ". job job ."
+            "side side side side";
+        justify-content: center;
+        align-items: center;
+    }
+    .section-top > h2 {
+        grid-column: 2 / -1;
+        justify-self: center;
+    }
+    .project, .edu {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
+        grid-gap: 8pt;
+        margin: 12pt 0;
+    }
+    .project > a, .edu > a {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        align-self: flex-start;
+        justify-self: left;
+        transition: 0.3s;
+        height: 100%;
+        width: 100%;
+        margin-top: 5pt;
+        border-radius: 5pt;
+        color: black;
+    }
+    .project:nth-child(2) {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+    .project:last-child {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+    .project > a > h3, .edu > a > h3 {
+        margin-left: 5pt;
+    }
+}
 
 @media (max-width: 620px) {
     .display-menu {

@@ -57,9 +57,7 @@ class DataProvider extends React.Component {
     }
 
     getCharacterGif = () => {
-        // console.log(process.env.REACT_APP_GIPHY_API_KEY)
         axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.character}&limit=1&rating=g&api_key=${process.env.REACT_APP_GIPHY_API_KEY}`).then(response => {
-            console.log(response.data.data[0].images.original.url)
             const { url } = response.data.data[0].images.original 
             const { title } = response.data.data[0]
             this.setState({ characterGif: { url, title }})
@@ -67,7 +65,6 @@ class DataProvider extends React.Component {
     }
 
     getLocationGif = () => {
-        console.log(this.state.place)
         axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.place}&limit=1&rating=g&api_key=${process.env.REACT_APP_GIPHY_API_KEY}`).then(response => {
             const { url } = response.data.data[0].images.original 
             const { title } = response.data.data[0] 
@@ -76,7 +73,6 @@ class DataProvider extends React.Component {
     }
 
     getActivityGif = () => {
-        console.log(this.state.activity)
         axios.get(`http://api.giphy.com/v1/gifs/search?q=${this.state.activity}&limit=1&rating=g&api_key=${process.env.REACT_APP_GIPHY_API_KEY}`).then(response => {
             const { url } = response.data.data[0].images.original 
             const { title } = response.data.data[0] 

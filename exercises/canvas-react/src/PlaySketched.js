@@ -31,7 +31,13 @@ class PlaySketched extends React.Component {
         return (
             <div className="body sketched-container">
                 <p className="description">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat alias quibusdam ullam accusantium impedit, facere excepturi possimus, reiciendis eveniet error magnam laboriosam eos minima! Nesciunt necessitatibus tenetur, placeat hic reprehenderit quibusdam dolor impedit aliquid quasi saepe eaque ipsam voluptatum similique minima vel tempora. Asperiores dolorem voluptatum ratione architecto nobis pariatur?
+                    Click the 'Generate Topics' button to be given a randomly generated 'Character', 'Location' and 'Activity'.  You must use these topics in your sketch on the 'Start Sketching' page.  Do your best to tell a clear story using AT LEAST these three topics.
+                    <br/>
+                    <br/>
+                    You may filter the type of character you would like to generate by selecting from the character drop down menu. 
+                    <br/>
+                    <br/>
+                    Good Luck, and Have Fun!!
                 </p>
                 <form className="form" onSubmit={this.handleSubmit}>
                     <select name="charCategory" onChange={this.handleChange}>

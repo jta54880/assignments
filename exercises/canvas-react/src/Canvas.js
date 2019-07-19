@@ -125,7 +125,6 @@ class Canvas extends React.Component {
     }
 
     render() {
-        console.log(this.props.savedSketches)
         const modalShowClass = this.props.showModal ? "display-block" : "display-none"
         const topicsShowClass = this.props.showTopics ? "topics" : "display-none"
         const styleDivOne = this.state.finishCharacter ? 

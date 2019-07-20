@@ -109,22 +109,22 @@ const Resume = () => {
                         <h2>Projects</h2>
                     </div>
                     <div className="project">
-                        <a href="TIE"><h3>TIE</h3></a>
+                        <a href="https://tieforcoaches.herokuapp.com"><h3>TIE</h3></a>
                         <p>A full stack (MERN) web app designed for coaches to log in and create/edit rosters and inventory lists for their teams.  A time-saving, user-friendly UI with custom aesthetic visuals.</p>
                         <p><span>BUILT WITH: </span>all skills listed</p>
                     </div>
                     <div className="project">
-                        <a href="Criddles Cafe"><h3>Criddle's Cafe Website</h3></a>
+                        <a href="#"><h3>Criddle's Cafe Website</h3></a>
                         <p>A soon to be deployed interactive business website created for a privately owned restaurant.</p>
                         <p><span>BUILT WITH: </span>JavaScript, React JS, Axios, Git, Express, MongoDB, Node.js, HTML 5, CSS Grid, Illustrator, SVG and SVG animations</p> 
                     </div>
                     <div className="project">
-                        <a href="sketched.surge.sh"><h3>Sketched</h3></a>
+                        <a href="http://sketched.surge.sh"><h3>Sketched</h3></a>
                         <p>SPA designed as a drawing game where users are given a chance to draw an original and creative scene including assigned randomized items. They can draw on an HTML canvas that I built into the app.</p>
                         <p><span>BUILT WITH: </span>JavaScript, React, Axios to call 3rd party API, Gifs from Giphy, HTML canvas in a React component</p> 
                     </div>
                     <div className="project">
-                        <a href="periodictable.surge.sh"><h3>Periodic Table</h3></a>
+                        <a href="http://periodictable.surge.sh"><h3>Periodic Table</h3></a>
                         <p>An interactive and aesthetically pleasing periodic table utilizing CSS grid and grid areas where the user can isolate elements to expand them and learn more.</p>
                         <p><span>BUILT WITH: </span>CSS grid, React, conditional rendering, JavaScript</p> 
                     </div>

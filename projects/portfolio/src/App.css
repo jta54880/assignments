@@ -42,20 +42,30 @@ h1 {
 }
 .logo {
     margin: 10pt;
-    display: inline-block;
+    display: flex;
     padding: 5pt;
     background: none;
     border: solid 3pt rgba(0,0,0,0.25);
     border-radius: 2pt;
+    align-items: center;
 }
 .display-menu {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0.8);
+}
+.inner-modal {
     position: fixed;
     display: flex;
     flex-direction: column;
     background: rgba(2, 2, 2, 0.5);
-    z-index: 2;
-    width: 30vw;
-    left: 70%;
+    z-index: 100;
+    width: 50vw;
+    align-items: flex-end;
 }
 .no-display {
     display: none;
@@ -71,6 +81,7 @@ h1 {
     text-decoration: none;
     margin: 50pt;
     color: white;
+    font-size: 1.75em;
 }
 .body {
     grid-row: 2;
@@ -551,9 +562,9 @@ h1 {
 }
 
 @media (max-width: 620px) {
-    .display-menu {
+    .inner-modal {
         width: 100vw;
-        left: 50%;
+        align-items: flex-start;
     }  
     .projects-container h3 {
         font-size: 0.75em;

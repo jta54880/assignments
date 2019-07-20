@@ -13,7 +13,8 @@ const Navbar = props => {
                 <div className="logo">Jake Afuvai</div>
             </Fade>
             <Fade right when={props.showMenu}>
-                <div className={toggleMenu} style={{height: document.body.clientHeight}}>
+                <div className={toggleMenu}>
+                <div className="inner-modal" style={{height: "100vh"}}>
                     <FontAwesomeIcon 
                         className="close-btn" 
                         icon={faWindowClose} 
@@ -23,9 +24,8 @@ const Navbar = props => {
                     />
                     <Link className="menu-link" to="/" onClick={props.closeMenu}>Home</Link>
                     <Link className="menu-link" to="/projects" onClick={props.closeMenu}>Projects</Link>
-                    {/* <Link className="menu-link" to="/resume">Resume</Link> */}
-                    {/* <a className="menu-link" href="https://docs.google.com/document/d/1qNcFo25pgyZ4r3pd8vxUgaVUXLzPAJ9L5vG0DSJ2Mxc/edit?usp=sharing">Resume</a> */}
                     <Link className="menu-link" to="/resume" onClick={props.closeMenu}>Resume</Link>
+                </div>
                 </div>
             </Fade>
         </div>

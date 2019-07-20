@@ -10,7 +10,7 @@ const Projects = () => {
             <Fade duration={3000}>
                 <div className="projects-container">
                     <h1>projects...</h1>
-                    <a href="https://github.com/jta54880/final-project"><h3>TIE: Full Stack Coach App</h3>
+                    <a href="https://tieforcoaches.herokuapp.com"><h3>TIE: Full Stack Coach App</h3>
                     <div className="tie-img"></div>
                     </a>
                     <a href="http://sketched.surge.sh"><h3>Sketched: React SPA Web App</h3>
